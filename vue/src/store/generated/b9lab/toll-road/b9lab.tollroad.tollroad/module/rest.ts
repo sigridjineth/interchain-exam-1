@@ -25,12 +25,21 @@ export interface RpcStatus {
  */
 export type TollroadParams = object;
 
+export interface TollroadQueryGetSystemInfoResponse {
+  SystemInfo?: TollroadSystemInfo;
+}
+
 /**
  * QueryParamsResponse is response type for the Query/Params RPC method.
  */
 export interface TollroadQueryParamsResponse {
   /** params holds all the parameters of this module. */
   params?: TollroadParams;
+}
+
+export interface TollroadSystemInfo {
+  /** @format uint64 */
+  nextOperatorId?: string;
 }
 
 export type QueryParamsType = Record<string | number, any>;
@@ -240,6 +249,22 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
   queryParams = (params: RequestParams = {}) =>
     this.request<TollroadQueryParamsResponse, RpcStatus>({
       path: `/b9lab/toll-road/tollroad/params`,
+      method: "GET",
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QuerySystemInfo
+   * @summary Queries a SystemInfo by index.
+   * @request GET:/b9lab/toll-road/tollroad/system_info
+   */
+  querySystemInfo = (params: RequestParams = {}) =>
+    this.request<TollroadQueryGetSystemInfoResponse, RpcStatus>({
+      path: `/b9lab/toll-road/tollroad/system_info`,
       method: "GET",
       format: "json",
       ...params,
