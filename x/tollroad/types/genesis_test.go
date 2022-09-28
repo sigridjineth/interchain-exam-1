@@ -25,9 +25,31 @@ func TestGenesisState_Validate(t *testing.T) {
 				SystemInfo: types.SystemInfo{
 					NextOperatorId: 6,
 				},
+				RoadOperatorList: []types.RoadOperator{
+					{
+						Index: "0",
+					},
+					{
+						Index: "1",
+					},
+				},
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
+		},
+		{
+			desc: "duplicated roadOperator",
+			genState: &types.GenesisState{
+				RoadOperatorList: []types.RoadOperator{
+					{
+						Index: "0",
+					},
+					{
+						Index: "0",
+					},
+				},
+			},
+			valid: false,
 		},
 		// this line is used by starport scaffolding # types/genesis/testcase
 	} {

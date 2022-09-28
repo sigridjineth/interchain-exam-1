@@ -10,6 +10,10 @@ import (
 // state.
 func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) {
 	k.SetSystemInfo(ctx, genState.SystemInfo)
+	// Set all the roadOperator
+	for _, elem := range genState.RoadOperatorList {
+		k.SetRoadOperator(ctx, elem)
+	}
 	// this line is used by starport scaffolding # genesis/module/init
 	k.SetParams(ctx, genState.Params)
 }
@@ -24,6 +28,7 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 	if found {
 		genesis.SystemInfo = systemInfo
 	}
+	genesis.RoadOperatorList = k.GetAllRoadOperator(ctx)
 	// this line is used by starport scaffolding # genesis/module/export
 
 	return genesis

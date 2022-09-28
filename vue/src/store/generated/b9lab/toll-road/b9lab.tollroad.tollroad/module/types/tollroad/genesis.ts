@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { Params } from "../tollroad/params";
 import { SystemInfo } from "../tollroad/system_info";
+import { RoadOperator } from "../tollroad/road_operator";
 import { Writer, Reader } from "protobufjs/minimal";
 
 export const protobufPackage = "b9lab.tollroad.tollroad";
@@ -8,8 +9,9 @@ export const protobufPackage = "b9lab.tollroad.tollroad";
 /** GenesisState defines the tollroad module's genesis state. */
 export interface GenesisState {
   params: Params | undefined;
-  /** this line is used by starport scaffolding # genesis/proto/state */
   systemInfo: SystemInfo | undefined;
+  /** this line is used by starport scaffolding # genesis/proto/state */
+  roadOperatorList: RoadOperator[];
 }
 
 const baseGenesisState: object = {};
@@ -22,6 +24,9 @@ export const GenesisState = {
     if (message.systemInfo !== undefined) {
       SystemInfo.encode(message.systemInfo, writer.uint32(18).fork()).ldelim();
     }
+    for (const v of message.roadOperatorList) {
+      RoadOperator.encode(v!, writer.uint32(26).fork()).ldelim();
+    }
     return writer;
   },
 
@@ -29,6 +34,7 @@ export const GenesisState = {
     const reader = input instanceof Uint8Array ? new Reader(input) : input;
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseGenesisState } as GenesisState;
+    message.roadOperatorList = [];
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -37,6 +43,11 @@ export const GenesisState = {
           break;
         case 2:
           message.systemInfo = SystemInfo.decode(reader, reader.uint32());
+          break;
+        case 3:
+          message.roadOperatorList.push(
+            RoadOperator.decode(reader, reader.uint32())
+          );
           break;
         default:
           reader.skipType(tag & 7);
@@ -48,6 +59,7 @@ export const GenesisState = {
 
   fromJSON(object: any): GenesisState {
     const message = { ...baseGenesisState } as GenesisState;
+    message.roadOperatorList = [];
     if (object.params !== undefined && object.params !== null) {
       message.params = Params.fromJSON(object.params);
     } else {
@@ -57,6 +69,14 @@ export const GenesisState = {
       message.systemInfo = SystemInfo.fromJSON(object.systemInfo);
     } else {
       message.systemInfo = undefined;
+    }
+    if (
+      object.roadOperatorList !== undefined &&
+      object.roadOperatorList !== null
+    ) {
+      for (const e of object.roadOperatorList) {
+        message.roadOperatorList.push(RoadOperator.fromJSON(e));
+      }
     }
     return message;
   },
@@ -69,11 +89,19 @@ export const GenesisState = {
       (obj.systemInfo = message.systemInfo
         ? SystemInfo.toJSON(message.systemInfo)
         : undefined);
+    if (message.roadOperatorList) {
+      obj.roadOperatorList = message.roadOperatorList.map((e) =>
+        e ? RoadOperator.toJSON(e) : undefined
+      );
+    } else {
+      obj.roadOperatorList = [];
+    }
     return obj;
   },
 
   fromPartial(object: DeepPartial<GenesisState>): GenesisState {
     const message = { ...baseGenesisState } as GenesisState;
+    message.roadOperatorList = [];
     if (object.params !== undefined && object.params !== null) {
       message.params = Params.fromPartial(object.params);
     } else {
@@ -83,6 +111,14 @@ export const GenesisState = {
       message.systemInfo = SystemInfo.fromPartial(object.systemInfo);
     } else {
       message.systemInfo = undefined;
+    }
+    if (
+      object.roadOperatorList !== undefined &&
+      object.roadOperatorList !== null
+    ) {
+      for (const e of object.roadOperatorList) {
+        message.roadOperatorList.push(RoadOperator.fromPartial(e));
+      }
     }
     return message;
   },

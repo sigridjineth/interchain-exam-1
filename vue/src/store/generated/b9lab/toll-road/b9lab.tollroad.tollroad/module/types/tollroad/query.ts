@@ -2,6 +2,11 @@
 import { Reader, Writer } from "protobufjs/minimal";
 import { Params } from "../tollroad/params";
 import { SystemInfo } from "../tollroad/system_info";
+import { RoadOperator } from "../tollroad/road_operator";
+import {
+  PageRequest,
+  PageResponse,
+} from "../cosmos/base/query/v1beta1/pagination";
 
 export const protobufPackage = "b9lab.tollroad.tollroad";
 
@@ -18,6 +23,23 @@ export interface QueryGetSystemInfoRequest {}
 
 export interface QueryGetSystemInfoResponse {
   SystemInfo: SystemInfo | undefined;
+}
+
+export interface QueryGetRoadOperatorRequest {
+  index: string;
+}
+
+export interface QueryGetRoadOperatorResponse {
+  roadOperator: RoadOperator | undefined;
+}
+
+export interface QueryAllRoadOperatorRequest {
+  pagination: PageRequest | undefined;
+}
+
+export interface QueryAllRoadOperatorResponse {
+  roadOperator: RoadOperator[];
+  pagination: PageResponse | undefined;
 }
 
 const baseQueryParamsRequest: object = {};
@@ -241,6 +263,325 @@ export const QueryGetSystemInfoResponse = {
   },
 };
 
+const baseQueryGetRoadOperatorRequest: object = { index: "" };
+
+export const QueryGetRoadOperatorRequest = {
+  encode(
+    message: QueryGetRoadOperatorRequest,
+    writer: Writer = Writer.create()
+  ): Writer {
+    if (message.index !== "") {
+      writer.uint32(10).string(message.index);
+    }
+    return writer;
+  },
+
+  decode(
+    input: Reader | Uint8Array,
+    length?: number
+  ): QueryGetRoadOperatorRequest {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = {
+      ...baseQueryGetRoadOperatorRequest,
+    } as QueryGetRoadOperatorRequest;
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.index = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetRoadOperatorRequest {
+    const message = {
+      ...baseQueryGetRoadOperatorRequest,
+    } as QueryGetRoadOperatorRequest;
+    if (object.index !== undefined && object.index !== null) {
+      message.index = String(object.index);
+    } else {
+      message.index = "";
+    }
+    return message;
+  },
+
+  toJSON(message: QueryGetRoadOperatorRequest): unknown {
+    const obj: any = {};
+    message.index !== undefined && (obj.index = message.index);
+    return obj;
+  },
+
+  fromPartial(
+    object: DeepPartial<QueryGetRoadOperatorRequest>
+  ): QueryGetRoadOperatorRequest {
+    const message = {
+      ...baseQueryGetRoadOperatorRequest,
+    } as QueryGetRoadOperatorRequest;
+    if (object.index !== undefined && object.index !== null) {
+      message.index = object.index;
+    } else {
+      message.index = "";
+    }
+    return message;
+  },
+};
+
+const baseQueryGetRoadOperatorResponse: object = {};
+
+export const QueryGetRoadOperatorResponse = {
+  encode(
+    message: QueryGetRoadOperatorResponse,
+    writer: Writer = Writer.create()
+  ): Writer {
+    if (message.roadOperator !== undefined) {
+      RoadOperator.encode(
+        message.roadOperator,
+        writer.uint32(10).fork()
+      ).ldelim();
+    }
+    return writer;
+  },
+
+  decode(
+    input: Reader | Uint8Array,
+    length?: number
+  ): QueryGetRoadOperatorResponse {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = {
+      ...baseQueryGetRoadOperatorResponse,
+    } as QueryGetRoadOperatorResponse;
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.roadOperator = RoadOperator.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetRoadOperatorResponse {
+    const message = {
+      ...baseQueryGetRoadOperatorResponse,
+    } as QueryGetRoadOperatorResponse;
+    if (object.roadOperator !== undefined && object.roadOperator !== null) {
+      message.roadOperator = RoadOperator.fromJSON(object.roadOperator);
+    } else {
+      message.roadOperator = undefined;
+    }
+    return message;
+  },
+
+  toJSON(message: QueryGetRoadOperatorResponse): unknown {
+    const obj: any = {};
+    message.roadOperator !== undefined &&
+      (obj.roadOperator = message.roadOperator
+        ? RoadOperator.toJSON(message.roadOperator)
+        : undefined);
+    return obj;
+  },
+
+  fromPartial(
+    object: DeepPartial<QueryGetRoadOperatorResponse>
+  ): QueryGetRoadOperatorResponse {
+    const message = {
+      ...baseQueryGetRoadOperatorResponse,
+    } as QueryGetRoadOperatorResponse;
+    if (object.roadOperator !== undefined && object.roadOperator !== null) {
+      message.roadOperator = RoadOperator.fromPartial(object.roadOperator);
+    } else {
+      message.roadOperator = undefined;
+    }
+    return message;
+  },
+};
+
+const baseQueryAllRoadOperatorRequest: object = {};
+
+export const QueryAllRoadOperatorRequest = {
+  encode(
+    message: QueryAllRoadOperatorRequest,
+    writer: Writer = Writer.create()
+  ): Writer {
+    if (message.pagination !== undefined) {
+      PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(
+    input: Reader | Uint8Array,
+    length?: number
+  ): QueryAllRoadOperatorRequest {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = {
+      ...baseQueryAllRoadOperatorRequest,
+    } as QueryAllRoadOperatorRequest;
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAllRoadOperatorRequest {
+    const message = {
+      ...baseQueryAllRoadOperatorRequest,
+    } as QueryAllRoadOperatorRequest;
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageRequest.fromJSON(object.pagination);
+    } else {
+      message.pagination = undefined;
+    }
+    return message;
+  },
+
+  toJSON(message: QueryAllRoadOperatorRequest): unknown {
+    const obj: any = {};
+    message.pagination !== undefined &&
+      (obj.pagination = message.pagination
+        ? PageRequest.toJSON(message.pagination)
+        : undefined);
+    return obj;
+  },
+
+  fromPartial(
+    object: DeepPartial<QueryAllRoadOperatorRequest>
+  ): QueryAllRoadOperatorRequest {
+    const message = {
+      ...baseQueryAllRoadOperatorRequest,
+    } as QueryAllRoadOperatorRequest;
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageRequest.fromPartial(object.pagination);
+    } else {
+      message.pagination = undefined;
+    }
+    return message;
+  },
+};
+
+const baseQueryAllRoadOperatorResponse: object = {};
+
+export const QueryAllRoadOperatorResponse = {
+  encode(
+    message: QueryAllRoadOperatorResponse,
+    writer: Writer = Writer.create()
+  ): Writer {
+    for (const v of message.roadOperator) {
+      RoadOperator.encode(v!, writer.uint32(10).fork()).ldelim();
+    }
+    if (message.pagination !== undefined) {
+      PageResponse.encode(
+        message.pagination,
+        writer.uint32(18).fork()
+      ).ldelim();
+    }
+    return writer;
+  },
+
+  decode(
+    input: Reader | Uint8Array,
+    length?: number
+  ): QueryAllRoadOperatorResponse {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = {
+      ...baseQueryAllRoadOperatorResponse,
+    } as QueryAllRoadOperatorResponse;
+    message.roadOperator = [];
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.roadOperator.push(
+            RoadOperator.decode(reader, reader.uint32())
+          );
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAllRoadOperatorResponse {
+    const message = {
+      ...baseQueryAllRoadOperatorResponse,
+    } as QueryAllRoadOperatorResponse;
+    message.roadOperator = [];
+    if (object.roadOperator !== undefined && object.roadOperator !== null) {
+      for (const e of object.roadOperator) {
+        message.roadOperator.push(RoadOperator.fromJSON(e));
+      }
+    }
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageResponse.fromJSON(object.pagination);
+    } else {
+      message.pagination = undefined;
+    }
+    return message;
+  },
+
+  toJSON(message: QueryAllRoadOperatorResponse): unknown {
+    const obj: any = {};
+    if (message.roadOperator) {
+      obj.roadOperator = message.roadOperator.map((e) =>
+        e ? RoadOperator.toJSON(e) : undefined
+      );
+    } else {
+      obj.roadOperator = [];
+    }
+    message.pagination !== undefined &&
+      (obj.pagination = message.pagination
+        ? PageResponse.toJSON(message.pagination)
+        : undefined);
+    return obj;
+  },
+
+  fromPartial(
+    object: DeepPartial<QueryAllRoadOperatorResponse>
+  ): QueryAllRoadOperatorResponse {
+    const message = {
+      ...baseQueryAllRoadOperatorResponse,
+    } as QueryAllRoadOperatorResponse;
+    message.roadOperator = [];
+    if (object.roadOperator !== undefined && object.roadOperator !== null) {
+      for (const e of object.roadOperator) {
+        message.roadOperator.push(RoadOperator.fromPartial(e));
+      }
+    }
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageResponse.fromPartial(object.pagination);
+    } else {
+      message.pagination = undefined;
+    }
+    return message;
+  },
+};
+
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** Parameters queries the parameters of the module. */
@@ -249,6 +590,14 @@ export interface Query {
   SystemInfo(
     request: QueryGetSystemInfoRequest
   ): Promise<QueryGetSystemInfoResponse>;
+  /** Queries a RoadOperator by index. */
+  RoadOperator(
+    request: QueryGetRoadOperatorRequest
+  ): Promise<QueryGetRoadOperatorResponse>;
+  /** Queries a list of RoadOperator items. */
+  RoadOperatorAll(
+    request: QueryAllRoadOperatorRequest
+  ): Promise<QueryAllRoadOperatorResponse>;
 }
 
 export class QueryClientImpl implements Query {
@@ -277,6 +626,34 @@ export class QueryClientImpl implements Query {
     );
     return promise.then((data) =>
       QueryGetSystemInfoResponse.decode(new Reader(data))
+    );
+  }
+
+  RoadOperator(
+    request: QueryGetRoadOperatorRequest
+  ): Promise<QueryGetRoadOperatorResponse> {
+    const data = QueryGetRoadOperatorRequest.encode(request).finish();
+    const promise = this.rpc.request(
+      "b9lab.tollroad.tollroad.Query",
+      "RoadOperator",
+      data
+    );
+    return promise.then((data) =>
+      QueryGetRoadOperatorResponse.decode(new Reader(data))
+    );
+  }
+
+  RoadOperatorAll(
+    request: QueryAllRoadOperatorRequest
+  ): Promise<QueryAllRoadOperatorResponse> {
+    const data = QueryAllRoadOperatorRequest.encode(request).finish();
+    const promise = this.rpc.request(
+      "b9lab.tollroad.tollroad.Query",
+      "RoadOperatorAll",
+      data
+    );
+    return promise.then((data) =>
+      QueryAllRoadOperatorResponse.decode(new Reader(data))
     );
   }
 }

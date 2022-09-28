@@ -4,9 +4,15 @@ import { StdFee } from "@cosmjs/launchpad";
 import { SigningStargateClient } from "@cosmjs/stargate";
 import { Registry, OfflineSigner, EncodeObject, DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
 import { Api } from "./rest";
+import { MsgCreateRoadOperator } from "./types/tollroad/tx";
+import { MsgDeleteRoadOperator } from "./types/tollroad/tx";
+import { MsgUpdateRoadOperator } from "./types/tollroad/tx";
 
 
 const types = [
+  ["/b9lab.tollroad.tollroad.MsgCreateRoadOperator", MsgCreateRoadOperator],
+  ["/b9lab.tollroad.tollroad.MsgDeleteRoadOperator", MsgDeleteRoadOperator],
+  ["/b9lab.tollroad.tollroad.MsgUpdateRoadOperator", MsgUpdateRoadOperator],
   
 ];
 export const MissingWalletError = new Error("wallet is required");
@@ -39,6 +45,9 @@ const txClient = async (wallet: OfflineSigner, { addr: addr }: TxClientOptions =
 
   return {
     signAndBroadcast: (msgs: EncodeObject[], { fee, memo }: SignAndBroadcastOptions = {fee: defaultFee, memo: ""}) => client.signAndBroadcast(address, msgs, fee,memo),
+    msgCreateRoadOperator: (data: MsgCreateRoadOperator): EncodeObject => ({ typeUrl: "/b9lab.tollroad.tollroad.MsgCreateRoadOperator", value: MsgCreateRoadOperator.fromPartial( data ) }),
+    msgDeleteRoadOperator: (data: MsgDeleteRoadOperator): EncodeObject => ({ typeUrl: "/b9lab.tollroad.tollroad.MsgDeleteRoadOperator", value: MsgDeleteRoadOperator.fromPartial( data ) }),
+    msgUpdateRoadOperator: (data: MsgUpdateRoadOperator): EncodeObject => ({ typeUrl: "/b9lab.tollroad.tollroad.MsgUpdateRoadOperator", value: MsgUpdateRoadOperator.fromPartial( data ) }),
     
   };
 };

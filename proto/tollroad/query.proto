@@ -6,6 +6,7 @@ import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "tollroad/params.proto";
 import "tollroad/system_info.proto";
+import "tollroad/road_operator.proto";
 // this line is used by starport scaffolding # 1
 
 option go_package = "github.com/b9lab/toll-road/x/tollroad/types";
@@ -20,6 +21,16 @@ service Query {
 	rpc SystemInfo(QueryGetSystemInfoRequest) returns (QueryGetSystemInfoResponse) {
 		option (google.api.http).get = "/b9lab/toll-road/tollroad/system_info";
 	}
+// Queries a RoadOperator by index.
+	rpc RoadOperator(QueryGetRoadOperatorRequest) returns (QueryGetRoadOperatorResponse) {
+		option (google.api.http).get = "/b9lab/toll-road/tollroad/road_operator/{index}";
+	}
+
+	// Queries a list of RoadOperator items.
+	rpc RoadOperatorAll(QueryAllRoadOperatorRequest) returns (QueryAllRoadOperatorResponse) {
+		option (google.api.http).get = "/b9lab/toll-road/tollroad/road_operator";
+	}
+
 // this line is used by starport scaffolding # 2
 }
 
@@ -37,4 +48,22 @@ message QueryGetSystemInfoRequest {}
 message QueryGetSystemInfoResponse {
 	SystemInfo SystemInfo = 1 [(gogoproto.nullable) = false];
 }
+message QueryGetRoadOperatorRequest {
+	  string index = 1;
+
+}
+
+message QueryGetRoadOperatorResponse {
+	RoadOperator roadOperator = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllRoadOperatorRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllRoadOperatorResponse {
+	repeated RoadOperator roadOperator = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
 // this line is used by starport scaffolding # 3

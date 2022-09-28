@@ -24,7 +24,19 @@ var (
 )
 
 const (
-// this line is used by starport scaffolding # simapp/module/const
+	opWeightMsgCreateRoadOperator = "op_weight_msg_road_operator"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateRoadOperator int = 100
+
+	opWeightMsgUpdateRoadOperator = "op_weight_msg_road_operator"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgUpdateRoadOperator int = 100
+
+	opWeightMsgDeleteRoadOperator = "op_weight_msg_road_operator"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgDeleteRoadOperator int = 100
+
+	// this line is used by starport scaffolding # simapp/module/const
 )
 
 // GenerateGenesisState creates a randomized GenState of the module
@@ -35,6 +47,16 @@ func (AppModule) GenerateGenesisState(simState *module.SimulationState) {
 	}
 	tollroadGenesis := types.GenesisState{
 		Params: types.DefaultParams(),
+		RoadOperatorList: []types.RoadOperator{
+			{
+				Creator: sample.AccAddress(),
+				Index:   "0",
+			},
+			{
+				Creator: sample.AccAddress(),
+				Index:   "1",
+			},
+		},
 		// this line is used by starport scaffolding # simapp/module/genesisState
 	}
 	simState.GenState[types.ModuleName] = simState.Cdc.MustMarshalJSON(&tollroadGenesis)
@@ -57,6 +79,39 @@ func (am AppModule) RegisterStoreDecoder(_ sdk.StoreDecoderRegistry) {}
 // WeightedOperations returns the all the gov module operations with their respective weights.
 func (am AppModule) WeightedOperations(simState module.SimulationState) []simtypes.WeightedOperation {
 	operations := make([]simtypes.WeightedOperation, 0)
+
+	var weightMsgCreateRoadOperator int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateRoadOperator, &weightMsgCreateRoadOperator, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateRoadOperator = defaultWeightMsgCreateRoadOperator
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateRoadOperator,
+		tollroadsimulation.SimulateMsgCreateRoadOperator(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgUpdateRoadOperator int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdateRoadOperator, &weightMsgUpdateRoadOperator, nil,
+		func(_ *rand.Rand) {
+			weightMsgUpdateRoadOperator = defaultWeightMsgUpdateRoadOperator
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgUpdateRoadOperator,
+		tollroadsimulation.SimulateMsgUpdateRoadOperator(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgDeleteRoadOperator int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteRoadOperator, &weightMsgDeleteRoadOperator, nil,
+		func(_ *rand.Rand) {
+			weightMsgDeleteRoadOperator = defaultWeightMsgDeleteRoadOperator
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgDeleteRoadOperator,
+		tollroadsimulation.SimulateMsgDeleteRoadOperator(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
 
 	// this line is used by starport scaffolding # simapp/module/operation
 
