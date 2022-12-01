@@ -33,6 +33,18 @@ func TestGenesisState_Validate(t *testing.T) {
 						Index: "1",
 					},
 				},
+				UserVaultList: []types.UserVault{
+					{
+						Owner:             "0",
+						RoadOperatorIndex: "0",
+						Token:             "0",
+					},
+					{
+						Owner:             "1",
+						RoadOperatorIndex: "1",
+						Token:             "1",
+					},
+				},
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
@@ -46,6 +58,24 @@ func TestGenesisState_Validate(t *testing.T) {
 					},
 					{
 						Index: "0",
+					},
+				},
+			},
+			valid: false,
+		},
+		{
+			desc: "duplicated userVault",
+			genState: &types.GenesisState{
+				UserVaultList: []types.UserVault{
+					{
+						Owner:             "0",
+						RoadOperatorIndex: "0",
+						Token:             "0",
+					},
+					{
+						Owner:             "0",
+						RoadOperatorIndex: "0",
+						Token:             "0",
 					},
 				},
 			},

@@ -339,6 +339,334 @@ func (m *MsgDeleteRoadOperatorResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgDeleteRoadOperatorResponse proto.InternalMessageInfo
 
+type MsgCreateUserVault struct {
+	Creator           string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Owner             string `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
+	RoadOperatorIndex string `protobuf:"bytes,3,opt,name=roadOperatorIndex,proto3" json:"roadOperatorIndex,omitempty"`
+	Token             string `protobuf:"bytes,4,opt,name=token,proto3" json:"token,omitempty"`
+	Balance           uint64 `protobuf:"varint,5,opt,name=balance,proto3" json:"balance,omitempty"`
+}
+
+func (m *MsgCreateUserVault) Reset()         { *m = MsgCreateUserVault{} }
+func (m *MsgCreateUserVault) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateUserVault) ProtoMessage()    {}
+func (*MsgCreateUserVault) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e57c13fb115b10b6, []int{6}
+}
+func (m *MsgCreateUserVault) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreateUserVault) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreateUserVault.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreateUserVault) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateUserVault.Merge(m, src)
+}
+func (m *MsgCreateUserVault) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreateUserVault) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateUserVault.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreateUserVault proto.InternalMessageInfo
+
+func (m *MsgCreateUserVault) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgCreateUserVault) GetOwner() string {
+	if m != nil {
+		return m.Owner
+	}
+	return ""
+}
+
+func (m *MsgCreateUserVault) GetRoadOperatorIndex() string {
+	if m != nil {
+		return m.RoadOperatorIndex
+	}
+	return ""
+}
+
+func (m *MsgCreateUserVault) GetToken() string {
+	if m != nil {
+		return m.Token
+	}
+	return ""
+}
+
+func (m *MsgCreateUserVault) GetBalance() uint64 {
+	if m != nil {
+		return m.Balance
+	}
+	return 0
+}
+
+type MsgCreateUserVaultResponse struct {
+}
+
+func (m *MsgCreateUserVaultResponse) Reset()         { *m = MsgCreateUserVaultResponse{} }
+func (m *MsgCreateUserVaultResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateUserVaultResponse) ProtoMessage()    {}
+func (*MsgCreateUserVaultResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e57c13fb115b10b6, []int{7}
+}
+func (m *MsgCreateUserVaultResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreateUserVaultResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreateUserVaultResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreateUserVaultResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateUserVaultResponse.Merge(m, src)
+}
+func (m *MsgCreateUserVaultResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreateUserVaultResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateUserVaultResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreateUserVaultResponse proto.InternalMessageInfo
+
+type MsgUpdateUserVault struct {
+	Creator           string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Owner             string `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
+	RoadOperatorIndex string `protobuf:"bytes,3,opt,name=roadOperatorIndex,proto3" json:"roadOperatorIndex,omitempty"`
+	Token             string `protobuf:"bytes,4,opt,name=token,proto3" json:"token,omitempty"`
+	Balance           uint64 `protobuf:"varint,5,opt,name=balance,proto3" json:"balance,omitempty"`
+}
+
+func (m *MsgUpdateUserVault) Reset()         { *m = MsgUpdateUserVault{} }
+func (m *MsgUpdateUserVault) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateUserVault) ProtoMessage()    {}
+func (*MsgUpdateUserVault) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e57c13fb115b10b6, []int{8}
+}
+func (m *MsgUpdateUserVault) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUpdateUserVault) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUpdateUserVault.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUpdateUserVault) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateUserVault.Merge(m, src)
+}
+func (m *MsgUpdateUserVault) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUpdateUserVault) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateUserVault.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUpdateUserVault proto.InternalMessageInfo
+
+func (m *MsgUpdateUserVault) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgUpdateUserVault) GetOwner() string {
+	if m != nil {
+		return m.Owner
+	}
+	return ""
+}
+
+func (m *MsgUpdateUserVault) GetRoadOperatorIndex() string {
+	if m != nil {
+		return m.RoadOperatorIndex
+	}
+	return ""
+}
+
+func (m *MsgUpdateUserVault) GetToken() string {
+	if m != nil {
+		return m.Token
+	}
+	return ""
+}
+
+func (m *MsgUpdateUserVault) GetBalance() uint64 {
+	if m != nil {
+		return m.Balance
+	}
+	return 0
+}
+
+type MsgUpdateUserVaultResponse struct {
+}
+
+func (m *MsgUpdateUserVaultResponse) Reset()         { *m = MsgUpdateUserVaultResponse{} }
+func (m *MsgUpdateUserVaultResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateUserVaultResponse) ProtoMessage()    {}
+func (*MsgUpdateUserVaultResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e57c13fb115b10b6, []int{9}
+}
+func (m *MsgUpdateUserVaultResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUpdateUserVaultResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUpdateUserVaultResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUpdateUserVaultResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateUserVaultResponse.Merge(m, src)
+}
+func (m *MsgUpdateUserVaultResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUpdateUserVaultResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateUserVaultResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUpdateUserVaultResponse proto.InternalMessageInfo
+
+type MsgDeleteUserVault struct {
+	Creator           string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Owner             string `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
+	RoadOperatorIndex string `protobuf:"bytes,3,opt,name=roadOperatorIndex,proto3" json:"roadOperatorIndex,omitempty"`
+	Token             string `protobuf:"bytes,4,opt,name=token,proto3" json:"token,omitempty"`
+}
+
+func (m *MsgDeleteUserVault) Reset()         { *m = MsgDeleteUserVault{} }
+func (m *MsgDeleteUserVault) String() string { return proto.CompactTextString(m) }
+func (*MsgDeleteUserVault) ProtoMessage()    {}
+func (*MsgDeleteUserVault) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e57c13fb115b10b6, []int{10}
+}
+func (m *MsgDeleteUserVault) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeleteUserVault) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeleteUserVault.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeleteUserVault) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteUserVault.Merge(m, src)
+}
+func (m *MsgDeleteUserVault) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeleteUserVault) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteUserVault.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeleteUserVault proto.InternalMessageInfo
+
+func (m *MsgDeleteUserVault) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgDeleteUserVault) GetOwner() string {
+	if m != nil {
+		return m.Owner
+	}
+	return ""
+}
+
+func (m *MsgDeleteUserVault) GetRoadOperatorIndex() string {
+	if m != nil {
+		return m.RoadOperatorIndex
+	}
+	return ""
+}
+
+func (m *MsgDeleteUserVault) GetToken() string {
+	if m != nil {
+		return m.Token
+	}
+	return ""
+}
+
+type MsgDeleteUserVaultResponse struct {
+}
+
+func (m *MsgDeleteUserVaultResponse) Reset()         { *m = MsgDeleteUserVaultResponse{} }
+func (m *MsgDeleteUserVaultResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgDeleteUserVaultResponse) ProtoMessage()    {}
+func (*MsgDeleteUserVaultResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e57c13fb115b10b6, []int{11}
+}
+func (m *MsgDeleteUserVaultResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeleteUserVaultResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeleteUserVaultResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeleteUserVaultResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteUserVaultResponse.Merge(m, src)
+}
+func (m *MsgDeleteUserVaultResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeleteUserVaultResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteUserVaultResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeleteUserVaultResponse proto.InternalMessageInfo
+
 func init() {
 	proto.RegisterType((*MsgCreateRoadOperator)(nil), "b9lab.tollroad.tollroad.MsgCreateRoadOperator")
 	proto.RegisterType((*MsgCreateRoadOperatorResponse)(nil), "b9lab.tollroad.tollroad.MsgCreateRoadOperatorResponse")
@@ -346,35 +674,50 @@ func init() {
 	proto.RegisterType((*MsgUpdateRoadOperatorResponse)(nil), "b9lab.tollroad.tollroad.MsgUpdateRoadOperatorResponse")
 	proto.RegisterType((*MsgDeleteRoadOperator)(nil), "b9lab.tollroad.tollroad.MsgDeleteRoadOperator")
 	proto.RegisterType((*MsgDeleteRoadOperatorResponse)(nil), "b9lab.tollroad.tollroad.MsgDeleteRoadOperatorResponse")
+	proto.RegisterType((*MsgCreateUserVault)(nil), "b9lab.tollroad.tollroad.MsgCreateUserVault")
+	proto.RegisterType((*MsgCreateUserVaultResponse)(nil), "b9lab.tollroad.tollroad.MsgCreateUserVaultResponse")
+	proto.RegisterType((*MsgUpdateUserVault)(nil), "b9lab.tollroad.tollroad.MsgUpdateUserVault")
+	proto.RegisterType((*MsgUpdateUserVaultResponse)(nil), "b9lab.tollroad.tollroad.MsgUpdateUserVaultResponse")
+	proto.RegisterType((*MsgDeleteUserVault)(nil), "b9lab.tollroad.tollroad.MsgDeleteUserVault")
+	proto.RegisterType((*MsgDeleteUserVaultResponse)(nil), "b9lab.tollroad.tollroad.MsgDeleteUserVaultResponse")
 }
 
 func init() { proto.RegisterFile("tollroad/tx.proto", fileDescriptor_e57c13fb115b10b6) }
 
 var fileDescriptor_e57c13fb115b10b6 = []byte{
-	// 357 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2c, 0xc9, 0xcf, 0xc9,
-	0x29, 0xca, 0x4f, 0x4c, 0xd1, 0x2f, 0xa9, 0xd0, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x12, 0x4f,
-	0xb2, 0xcc, 0x49, 0x4c, 0xd2, 0x83, 0x49, 0xc0, 0x19, 0x52, 0x32, 0x70, 0xb5, 0x20, 0x22, 0x3e,
-	0xbf, 0x20, 0xb5, 0x28, 0xb1, 0x24, 0xbf, 0x08, 0xa2, 0x4d, 0xa9, 0x98, 0x4b, 0xd4, 0xb7, 0x38,
-	0xdd, 0xb9, 0x28, 0x35, 0xb1, 0x24, 0x35, 0x28, 0x3f, 0x31, 0xc5, 0x1f, 0x2a, 0x2d, 0x24, 0xc1,
-	0xc5, 0x9e, 0x0c, 0x12, 0xcd, 0x2f, 0x92, 0x60, 0x54, 0x60, 0xd4, 0xe0, 0x0c, 0x82, 0x71, 0x85,
-	0x84, 0xb8, 0x58, 0xf2, 0x12, 0x73, 0x53, 0x25, 0x98, 0xc0, 0xc2, 0x60, 0xb6, 0x90, 0x08, 0x17,
-	0x6b, 0x49, 0x7e, 0x76, 0x6a, 0x9e, 0x04, 0x33, 0x58, 0x10, 0xc2, 0x11, 0x12, 0xe3, 0x62, 0x4b,
-	0x4c, 0x2e, 0xc9, 0x2c, 0x4b, 0x95, 0x60, 0x51, 0x60, 0xd4, 0xe0, 0x08, 0x82, 0xf2, 0x94, 0x4c,
-	0xb9, 0x64, 0xb1, 0x5a, 0x1a, 0x94, 0x5a, 0x5c, 0x90, 0x9f, 0x57, 0x0c, 0x36, 0x2e, 0x33, 0x2f,
-	0x25, 0xb5, 0x02, 0x6a, 0x35, 0x84, 0xa3, 0xd4, 0xc9, 0x08, 0x76, 0x6c, 0x68, 0x41, 0x0a, 0xf1,
-	0x8e, 0x85, 0x9b, 0xc4, 0x84, 0x64, 0x12, 0xdc, 0x0b, 0xcc, 0xd8, 0xbc, 0xc0, 0x82, 0xdd, 0x0b,
-	0xac, 0x28, 0x5e, 0x90, 0x07, 0x7b, 0x01, 0xd3, 0x29, 0x30, 0x2f, 0x28, 0xb9, 0x83, 0xdd, 0xea,
-	0x92, 0x9a, 0x93, 0x4a, 0x99, 0x5b, 0xa1, 0x36, 0x61, 0x1a, 0x04, 0xb3, 0xc9, 0xe8, 0x3f, 0x13,
-	0x17, 0xb3, 0x6f, 0x71, 0xba, 0x50, 0x0d, 0x97, 0x10, 0x96, 0x78, 0xd4, 0xd3, 0xc3, 0x91, 0x30,
-	0xf4, 0xb0, 0x46, 0x81, 0x94, 0x19, 0x69, 0xea, 0xe1, 0x51, 0x56, 0xc3, 0x25, 0x84, 0x25, 0x62,
-	0xf0, 0xda, 0x8e, 0xa9, 0x1e, 0xbf, 0xed, 0xb8, 0x43, 0x1b, 0x64, 0x3b, 0x96, 0xa0, 0xc6, 0x6b,
-	0x3b, 0xa6, 0x7a, 0xfc, 0xb6, 0xe3, 0x8e, 0x01, 0x27, 0xd7, 0x13, 0x8f, 0xe4, 0x18, 0x2f, 0x3c,
-	0x92, 0x63, 0x7c, 0xf0, 0x48, 0x8e, 0x71, 0xc2, 0x63, 0x39, 0x86, 0x0b, 0x8f, 0xe5, 0x18, 0x6e,
-	0x3c, 0x96, 0x63, 0x88, 0xd2, 0x4e, 0xcf, 0x2c, 0xc9, 0x28, 0x4d, 0xd2, 0x4b, 0xce, 0xcf, 0xd5,
-	0x07, 0x9b, 0xad, 0x0f, 0x32, 0x52, 0x17, 0x9c, 0x1d, 0x2b, 0xf4, 0x11, 0xb9, 0xb8, 0xb2, 0x20,
-	0xb5, 0x38, 0x89, 0x0d, 0x9c, 0x25, 0x8d, 0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0x82, 0x4e, 0xb5,
-	0x30, 0xde, 0x03, 0x00, 0x00,
+	// 502 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x55, 0x4d, 0x8b, 0xd3, 0x40,
+	0x18, 0xee, 0x6c, 0xd3, 0x5d, 0x9d, 0x8b, 0xec, 0xe0, 0x47, 0x0c, 0x6b, 0x5c, 0x72, 0x5a, 0x88,
+	0x26, 0xe0, 0xa2, 0xe0, 0xd5, 0x0f, 0xc4, 0xc3, 0x22, 0x04, 0xd6, 0x83, 0x97, 0x32, 0x49, 0x86,
+	0x5a, 0x4c, 0x33, 0x61, 0x66, 0x5a, 0x2b, 0xf4, 0x07, 0xe8, 0xcd, 0xdf, 0xe0, 0xaf, 0xf1, 0xd8,
+	0xa3, 0x27, 0x91, 0xf6, 0x8f, 0x48, 0x66, 0x92, 0xb1, 0xe6, 0xab, 0x2d, 0x1e, 0xdc, 0x4b, 0xc9,
+	0x3b, 0xf3, 0xe6, 0x7d, 0x3e, 0xa6, 0x4f, 0x06, 0x1e, 0x0b, 0x9a, 0x24, 0x8c, 0xe2, 0xd8, 0x17,
+	0x73, 0x2f, 0x63, 0x54, 0x50, 0x74, 0x27, 0x7c, 0x9a, 0xe0, 0xd0, 0x2b, 0x37, 0xf4, 0x83, 0x75,
+	0xa2, 0x7b, 0xf3, 0x9f, 0x21, 0xcd, 0x08, 0xc3, 0x82, 0x32, 0xf5, 0x9a, 0x75, 0x57, 0xef, 0x4e,
+	0x39, 0x61, 0xc3, 0x19, 0x9e, 0x26, 0x42, 0x6d, 0x39, 0x1c, 0xde, 0xba, 0xe0, 0xa3, 0xe7, 0x8c,
+	0x60, 0x41, 0x02, 0x8a, 0xe3, 0x37, 0xc5, 0x9b, 0xc8, 0x84, 0x47, 0x51, 0xbe, 0x4a, 0x99, 0x09,
+	0x4e, 0xc1, 0xd9, 0xf5, 0xa0, 0x2c, 0x11, 0x82, 0x46, 0x8a, 0x27, 0xc4, 0x3c, 0x90, 0xcb, 0xf2,
+	0x19, 0xdd, 0x84, 0x03, 0x41, 0x3f, 0x90, 0xd4, 0xec, 0xcb, 0x45, 0x55, 0xa0, 0xdb, 0xf0, 0x10,
+	0x47, 0x62, 0x3c, 0x23, 0xa6, 0x71, 0x0a, 0xce, 0xae, 0x05, 0x45, 0xe5, 0x3c, 0x86, 0xf7, 0x1a,
+	0x41, 0x03, 0xc2, 0x33, 0x9a, 0x72, 0x39, 0x6e, 0x9c, 0xc6, 0x64, 0x5e, 0x40, 0xab, 0xc2, 0xf9,
+	0x02, 0x24, 0xd9, 0xcb, 0x2c, 0xde, 0x9d, 0xac, 0x9e, 0x74, 0xb0, 0x31, 0x49, 0x4b, 0xe8, 0x37,
+	0x49, 0x30, 0x9a, 0x25, 0x0c, 0xfe, 0x92, 0x70, 0x5f, 0x4a, 0xa8, 0x53, 0x29, 0x25, 0x38, 0xaf,
+	0x24, 0xd7, 0x17, 0x24, 0x21, 0xff, 0xc6, 0xb5, 0x40, 0xaa, 0x0f, 0xd2, 0x48, 0xdf, 0x00, 0x44,
+	0xda, 0xce, 0x4b, 0x4e, 0xd8, 0xdb, 0xfc, 0x7c, 0xbb, 0x71, 0xe8, 0xc7, 0x94, 0xb0, 0x12, 0x47,
+	0x16, 0xe8, 0x01, 0x3c, 0x66, 0x1b, 0xe3, 0x5f, 0x4b, 0x26, 0xca, 0xa0, 0xfa, 0x46, 0x8b, 0x5b,
+	0x26, 0x3c, 0x0a, 0x71, 0x82, 0xd3, 0x48, 0xd9, 0x65, 0x04, 0x65, 0xe9, 0x9c, 0x40, 0xab, 0xce,
+	0xb1, 0x2a, 0x41, 0xd9, 0x79, 0xb5, 0x25, 0x54, 0x38, 0x6a, 0x09, 0x9f, 0x95, 0x04, 0x75, 0x4e,
+	0xff, 0x55, 0x42, 0x41, 0xb4, 0xc2, 0xa4, 0x24, 0xfa, 0xe8, 0xe7, 0x00, 0xf6, 0x2f, 0xf8, 0x08,
+	0x2d, 0x20, 0x6a, 0x88, 0xbd, 0xe7, 0xb5, 0x7c, 0x62, 0xbc, 0xc6, 0xc4, 0x5a, 0x4f, 0xf6, 0xeb,
+	0xd7, 0x09, 0x5f, 0x40, 0xd4, 0x90, 0xe3, 0x4e, 0xf4, 0x7a, 0x7f, 0x37, 0x7a, 0x7b, 0x38, 0x73,
+	0xf4, 0x86, 0x64, 0x76, 0xa2, 0xd7, 0xfb, 0xbb, 0xd1, 0xdb, 0x03, 0x8b, 0x38, 0xbc, 0x51, 0x0d,
+	0xab, 0xbb, 0xdd, 0x46, 0xdd, 0x6c, 0x9d, 0xef, 0xd1, 0xbc, 0x09, 0x5a, 0x8d, 0x97, 0xbb, 0xdd,
+	0xbd, 0x1d, 0x41, 0x5b, 0x42, 0x91, 0x83, 0x56, 0x03, 0xe1, 0x6e, 0x37, 0x6d, 0x47, 0xd0, 0x96,
+	0x3f, 0xf8, 0xb3, 0x97, 0xdf, 0x57, 0x36, 0x58, 0xae, 0x6c, 0xf0, 0x6b, 0x65, 0x83, 0xaf, 0x6b,
+	0xbb, 0xb7, 0x5c, 0xdb, 0xbd, 0x1f, 0x6b, 0xbb, 0xf7, 0xce, 0x1d, 0x8d, 0xc5, 0xfb, 0x69, 0xe8,
+	0x45, 0x74, 0xe2, 0xcb, 0xc1, 0x7e, 0x3e, 0xef, 0xa1, 0xbc, 0x19, 0xe7, 0xfe, 0x9f, 0xeb, 0xf6,
+	0x53, 0x46, 0x78, 0x78, 0x28, 0x2f, 0xc8, 0xf3, 0xdf, 0x01, 0x00, 0x00, 0xff, 0xff, 0x0c, 0xbc,
+	0x5e, 0x34, 0x87, 0x07, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -392,6 +735,9 @@ type MsgClient interface {
 	CreateRoadOperator(ctx context.Context, in *MsgCreateRoadOperator, opts ...grpc.CallOption) (*MsgCreateRoadOperatorResponse, error)
 	UpdateRoadOperator(ctx context.Context, in *MsgUpdateRoadOperator, opts ...grpc.CallOption) (*MsgUpdateRoadOperatorResponse, error)
 	DeleteRoadOperator(ctx context.Context, in *MsgDeleteRoadOperator, opts ...grpc.CallOption) (*MsgDeleteRoadOperatorResponse, error)
+	CreateUserVault(ctx context.Context, in *MsgCreateUserVault, opts ...grpc.CallOption) (*MsgCreateUserVaultResponse, error)
+	UpdateUserVault(ctx context.Context, in *MsgUpdateUserVault, opts ...grpc.CallOption) (*MsgUpdateUserVaultResponse, error)
+	DeleteUserVault(ctx context.Context, in *MsgDeleteUserVault, opts ...grpc.CallOption) (*MsgDeleteUserVaultResponse, error)
 }
 
 type msgClient struct {
@@ -429,11 +775,41 @@ func (c *msgClient) DeleteRoadOperator(ctx context.Context, in *MsgDeleteRoadOpe
 	return out, nil
 }
 
+func (c *msgClient) CreateUserVault(ctx context.Context, in *MsgCreateUserVault, opts ...grpc.CallOption) (*MsgCreateUserVaultResponse, error) {
+	out := new(MsgCreateUserVaultResponse)
+	err := c.cc.Invoke(ctx, "/b9lab.tollroad.tollroad.Msg/CreateUserVault", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) UpdateUserVault(ctx context.Context, in *MsgUpdateUserVault, opts ...grpc.CallOption) (*MsgUpdateUserVaultResponse, error) {
+	out := new(MsgUpdateUserVaultResponse)
+	err := c.cc.Invoke(ctx, "/b9lab.tollroad.tollroad.Msg/UpdateUserVault", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) DeleteUserVault(ctx context.Context, in *MsgDeleteUserVault, opts ...grpc.CallOption) (*MsgDeleteUserVaultResponse, error) {
+	out := new(MsgDeleteUserVaultResponse)
+	err := c.cc.Invoke(ctx, "/b9lab.tollroad.tollroad.Msg/DeleteUserVault", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	CreateRoadOperator(context.Context, *MsgCreateRoadOperator) (*MsgCreateRoadOperatorResponse, error)
 	UpdateRoadOperator(context.Context, *MsgUpdateRoadOperator) (*MsgUpdateRoadOperatorResponse, error)
 	DeleteRoadOperator(context.Context, *MsgDeleteRoadOperator) (*MsgDeleteRoadOperatorResponse, error)
+	CreateUserVault(context.Context, *MsgCreateUserVault) (*MsgCreateUserVaultResponse, error)
+	UpdateUserVault(context.Context, *MsgUpdateUserVault) (*MsgUpdateUserVaultResponse, error)
+	DeleteUserVault(context.Context, *MsgDeleteUserVault) (*MsgDeleteUserVaultResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -448,6 +824,15 @@ func (*UnimplementedMsgServer) UpdateRoadOperator(ctx context.Context, req *MsgU
 }
 func (*UnimplementedMsgServer) DeleteRoadOperator(ctx context.Context, req *MsgDeleteRoadOperator) (*MsgDeleteRoadOperatorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteRoadOperator not implemented")
+}
+func (*UnimplementedMsgServer) CreateUserVault(ctx context.Context, req *MsgCreateUserVault) (*MsgCreateUserVaultResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateUserVault not implemented")
+}
+func (*UnimplementedMsgServer) UpdateUserVault(ctx context.Context, req *MsgUpdateUserVault) (*MsgUpdateUserVaultResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserVault not implemented")
+}
+func (*UnimplementedMsgServer) DeleteUserVault(ctx context.Context, req *MsgDeleteUserVault) (*MsgDeleteUserVaultResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteUserVault not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -508,6 +893,60 @@ func _Msg_DeleteRoadOperator_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_CreateUserVault_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCreateUserVault)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).CreateUserVault(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/b9lab.tollroad.tollroad.Msg/CreateUserVault",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).CreateUserVault(ctx, req.(*MsgCreateUserVault))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_UpdateUserVault_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateUserVault)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UpdateUserVault(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/b9lab.tollroad.tollroad.Msg/UpdateUserVault",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UpdateUserVault(ctx, req.(*MsgUpdateUserVault))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_DeleteUserVault_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgDeleteUserVault)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).DeleteUserVault(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/b9lab.tollroad.tollroad.Msg/DeleteUserVault",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).DeleteUserVault(ctx, req.(*MsgDeleteUserVault))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "b9lab.tollroad.tollroad.Msg",
 	HandlerType: (*MsgServer)(nil),
@@ -523,6 +962,18 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteRoadOperator",
 			Handler:    _Msg_DeleteRoadOperator_Handler,
+		},
+		{
+			MethodName: "CreateUserVault",
+			Handler:    _Msg_CreateUserVault_Handler,
+		},
+		{
+			MethodName: "UpdateUserVault",
+			Handler:    _Msg_UpdateUserVault_Handler,
+		},
+		{
+			MethodName: "DeleteUserVault",
+			Handler:    _Msg_DeleteUserVault_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -757,6 +1208,238 @@ func (m *MsgDeleteRoadOperatorResponse) MarshalToSizedBuffer(dAtA []byte) (int, 
 	return len(dAtA) - i, nil
 }
 
+func (m *MsgCreateUserVault) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateUserVault) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateUserVault) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Balance != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Balance))
+		i--
+		dAtA[i] = 0x28
+	}
+	if len(m.Token) > 0 {
+		i -= len(m.Token)
+		copy(dAtA[i:], m.Token)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Token)))
+		i--
+		dAtA[i] = 0x22
+	}
+	if len(m.RoadOperatorIndex) > 0 {
+		i -= len(m.RoadOperatorIndex)
+		copy(dAtA[i:], m.RoadOperatorIndex)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.RoadOperatorIndex)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.Owner) > 0 {
+		i -= len(m.Owner)
+		copy(dAtA[i:], m.Owner)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Owner)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgCreateUserVaultResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateUserVaultResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateUserVaultResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateUserVault) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateUserVault) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateUserVault) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Balance != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Balance))
+		i--
+		dAtA[i] = 0x28
+	}
+	if len(m.Token) > 0 {
+		i -= len(m.Token)
+		copy(dAtA[i:], m.Token)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Token)))
+		i--
+		dAtA[i] = 0x22
+	}
+	if len(m.RoadOperatorIndex) > 0 {
+		i -= len(m.RoadOperatorIndex)
+		copy(dAtA[i:], m.RoadOperatorIndex)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.RoadOperatorIndex)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.Owner) > 0 {
+		i -= len(m.Owner)
+		copy(dAtA[i:], m.Owner)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Owner)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateUserVaultResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateUserVaultResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateUserVaultResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteUserVault) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteUserVault) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteUserVault) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Token) > 0 {
+		i -= len(m.Token)
+		copy(dAtA[i:], m.Token)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Token)))
+		i--
+		dAtA[i] = 0x22
+	}
+	if len(m.RoadOperatorIndex) > 0 {
+		i -= len(m.RoadOperatorIndex)
+		copy(dAtA[i:], m.RoadOperatorIndex)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.RoadOperatorIndex)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.Owner) > 0 {
+		i -= len(m.Owner)
+		copy(dAtA[i:], m.Owner)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Owner)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteUserVaultResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteUserVaultResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteUserVaultResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	offset -= sovTx(v)
 	base := offset
@@ -860,6 +1543,114 @@ func (m *MsgDeleteRoadOperator) Size() (n int) {
 }
 
 func (m *MsgDeleteRoadOperatorResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgCreateUserVault) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Owner)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.RoadOperatorIndex)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Token)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Balance != 0 {
+		n += 1 + sovTx(uint64(m.Balance))
+	}
+	return n
+}
+
+func (m *MsgCreateUserVaultResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgUpdateUserVault) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Owner)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.RoadOperatorIndex)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Token)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Balance != 0 {
+		n += 1 + sovTx(uint64(m.Balance))
+	}
+	return n
+}
+
+func (m *MsgUpdateUserVaultResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgDeleteUserVault) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Owner)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.RoadOperatorIndex)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Token)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgDeleteUserVaultResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1511,6 +2302,728 @@ func (m *MsgDeleteRoadOperatorResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: MsgDeleteRoadOperatorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateUserVault) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateUserVault: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateUserVault: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Owner", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Owner = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field RoadOperatorIndex", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.RoadOperatorIndex = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Token", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Token = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 5:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Balance", wireType)
+			}
+			m.Balance = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Balance |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateUserVaultResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateUserVaultResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateUserVaultResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateUserVault) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateUserVault: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateUserVault: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Owner", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Owner = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field RoadOperatorIndex", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.RoadOperatorIndex = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Token", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Token = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 5:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Balance", wireType)
+			}
+			m.Balance = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Balance |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateUserVaultResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateUserVaultResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateUserVaultResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteUserVault) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteUserVault: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteUserVault: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Owner", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Owner = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field RoadOperatorIndex", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.RoadOperatorIndex = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Token", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Token = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteUserVaultResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteUserVaultResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteUserVaultResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		default:

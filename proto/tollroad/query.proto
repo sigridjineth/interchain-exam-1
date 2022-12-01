@@ -7,6 +7,7 @@ import "cosmos/base/query/v1beta1/pagination.proto";
 import "tollroad/params.proto";
 import "tollroad/system_info.proto";
 import "tollroad/road_operator.proto";
+import "tollroad/user_vault.proto";
 // this line is used by starport scaffolding # 1
 
 option go_package = "github.com/b9lab/toll-road/x/tollroad/types";
@@ -29,6 +30,16 @@ service Query {
 	// Queries a list of RoadOperator items.
 	rpc RoadOperatorAll(QueryAllRoadOperatorRequest) returns (QueryAllRoadOperatorResponse) {
 		option (google.api.http).get = "/b9lab/toll-road/tollroad/road_operator";
+	}
+
+// Queries a UserVault by index.
+	rpc UserVault(QueryGetUserVaultRequest) returns (QueryGetUserVaultResponse) {
+		option (google.api.http).get = "/b9lab/toll-road/tollroad/user_vault/{owner}/{roadOperatorIndex}/{token}";
+	}
+
+	// Queries a list of UserVault items.
+	rpc UserVaultAll(QueryAllUserVaultRequest) returns (QueryAllUserVaultResponse) {
+		option (google.api.http).get = "/b9lab/toll-road/tollroad/user_vault";
 	}
 
 // this line is used by starport scaffolding # 2
@@ -63,6 +74,26 @@ message QueryAllRoadOperatorRequest {
 
 message QueryAllRoadOperatorResponse {
 	repeated RoadOperator roadOperator = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetUserVaultRequest {
+	  string owner = 1;
+  string roadOperatorIndex = 2;
+  string token = 3;
+
+}
+
+message QueryGetUserVaultResponse {
+	UserVault userVault = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllUserVaultRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllUserVaultResponse {
+	repeated UserVault userVault = 1 [(gogoproto.nullable) = false];
 	cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 

@@ -1,0 +1,13 @@
+syntax = "proto3";
+package b9lab.tollroad.tollroad;
+
+option go_package = "github.com/b9lab/toll-road/x/tollroad/types";
+
+message UserVault {
+  string owner = 1; 
+  string roadOperatorIndex = 2; 
+  string token = 3; 
+  uint64 balance = 4; 
+  string creator = 5;
+}
+

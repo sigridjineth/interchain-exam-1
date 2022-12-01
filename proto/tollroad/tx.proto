@@ -2,6 +2,7 @@ syntax = "proto3";
 package b9lab.tollroad.tollroad;
 
 import "tollroad/road_operator.proto";
+import "tollroad/user_vault.proto";
 // this line is used by starport scaffolding # proto/tx/import
 
 option go_package = "github.com/b9lab/toll-road/x/tollroad/types";
@@ -11,6 +12,9 @@ service Msg {
       rpc CreateRoadOperator(MsgCreateRoadOperator) returns (MsgCreateRoadOperatorResponse);
   rpc UpdateRoadOperator(MsgUpdateRoadOperator) returns (MsgUpdateRoadOperatorResponse);
   rpc DeleteRoadOperator(MsgDeleteRoadOperator) returns (MsgDeleteRoadOperatorResponse);
+  rpc CreateUserVault(MsgCreateUserVault) returns (MsgCreateUserVaultResponse);
+  rpc UpdateUserVault(MsgUpdateUserVault) returns (MsgUpdateUserVaultResponse);
+  rpc DeleteUserVault(MsgDeleteUserVault) returns (MsgDeleteUserVaultResponse);
 // this line is used by starport scaffolding # proto/tx/rpc
 }
 
@@ -39,5 +43,33 @@ message MsgDeleteRoadOperator {
   string index = 2;
 }
 message MsgDeleteRoadOperatorResponse {}
+
+message MsgCreateUserVault {
+  string creator = 1;
+  string owner = 2;
+  string roadOperatorIndex = 3;
+  string token = 4;
+
+  uint64 balance = 5;
+}
+message MsgCreateUserVaultResponse {}
+
+message MsgUpdateUserVault {
+  string creator = 1;
+  string owner = 2;
+  string roadOperatorIndex = 3;
+  string token = 4;
+
+  uint64 balance = 5;
+}
+message MsgUpdateUserVaultResponse {}
+
+message MsgDeleteUserVault {
+  string creator = 1;
+  string owner = 2;
+  string roadOperatorIndex = 3;
+  string token = 4;
+}
+message MsgDeleteUserVaultResponse {}
 
 // this line is used by starport scaffolding # proto/tx/message
