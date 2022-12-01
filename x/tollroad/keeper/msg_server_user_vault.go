@@ -34,6 +34,16 @@ func (k msgServer) CreateUserVault(goCtx context.Context, msg *types.MsgCreateUs
 		userVault,
 	)
 
+	// If the amount is 0 then it returns an error.
+	if userVault.Balance == 0 {
+		return nil, sdkerrors.Wrap(types.ErrZeroTokens, "")
+	}
+
+	// If the user does not have enough tokens, then it should return an error. See the tests for the details of messages.
+	if userVault.Balance < msg.Balance {
+		return nil, sdkerrors.Wrap(types.ErrInsufficientFunds, "")
+	}
+
 	AccAddressFromBech32, _ := sdk.AccAddressFromBech32(msg.Owner)
 	err := k.escrow.SendCoinsFromAccountToModule(ctx,
 		AccAddressFromBech32,
