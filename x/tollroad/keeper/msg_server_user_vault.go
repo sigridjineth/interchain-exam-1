@@ -138,6 +138,18 @@ func (k msgServer) DeleteUserVault(goCtx context.Context, msg *types.MsgDeleteUs
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
 
+	// The balance amount is transferred from the module to the user.
+	AccAddressFromBech32, _ := sdk.AccAddressFromBech32(msg.Creator)
+	err := k.escrow.SendCoinsFromModuleToAccount(ctx,
+		types.ModuleName,
+		AccAddressFromBech32,
+		sdk.NewCoins(sdk.NewCoin(msg.Token, sdk.NewInt(int64(valFound.Balance)))))
+	if err != nil {
+		panic(err.Error())
+		return nil, err
+	}
+	//If the module does not have enough tokens, it should panic. See the tests for the details of messages.
+
 	k.RemoveUserVault(
 		ctx,
 		msg.Creator,
