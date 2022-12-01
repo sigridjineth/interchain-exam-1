@@ -47,7 +47,7 @@ func TestUserVaultMsgServerCreateFive(t *testing.T) {
 	creator := "cosmos1jmjfq0tplp9tmx4v9uemw72y4d2wa5nr3xn9d3"
 	for i := 0; i < 5; i++ {
 		createRequest := &types.MsgCreateUserVault{
-			//Creator:           creator,
+			Owner:             creator,
 			RoadOperatorIndex: strconv.Itoa(rand.Intn(1000)),
 			Token:             sdk.DefaultBondDenom,
 			Balance:           uint64(rand.Intn(1000)),

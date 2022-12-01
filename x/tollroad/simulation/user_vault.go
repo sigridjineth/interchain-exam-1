@@ -71,7 +71,7 @@ func SimulateMsgUpdateUserVault(
 			found        = false
 		)
 		for _, obj := range allUserVault {
-			simAccount, found = FindAccount(accs, obj.Creator)
+			simAccount, found = FindAccount(accs, obj.Owner)
 			if found {
 				userVault = obj
 				break
@@ -119,7 +119,7 @@ func SimulateMsgDeleteUserVault(
 			found        = false
 		)
 		for _, obj := range allUserVault {
-			simAccount, found = FindAccount(accs, obj.Creator)
+			simAccount, found = FindAccount(accs, obj.Owner)
 			if found {
 				userVault = obj
 				break

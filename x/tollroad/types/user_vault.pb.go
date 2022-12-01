@@ -27,7 +27,7 @@ type UserVault struct {
 	RoadOperatorIndex string `protobuf:"bytes,2,opt,name=roadOperatorIndex,proto3" json:"roadOperatorIndex,omitempty"`
 	Token             string `protobuf:"bytes,3,opt,name=token,proto3" json:"token,omitempty"`
 	Balance           uint64 `protobuf:"varint,4,opt,name=balance,proto3" json:"balance,omitempty"`
-	Creator           string `protobuf:"bytes,5,opt,name=creator,proto3" json:"creator,omitempty"`
+	//Creator           string `protobuf:"bytes,5,opt,name=creator,proto3" json:"creator,omitempty"`
 }
 
 func (m *UserVault) Reset()         { *m = UserVault{} }
@@ -91,12 +91,12 @@ func (m *UserVault) GetBalance() uint64 {
 	return 0
 }
 
-func (m *UserVault) GetCreator() string {
-	if m != nil {
-		return m.Creator
-	}
-	return ""
-}
+//func (m *UserVault) GetCreator() string {
+//	if m != nil {
+//		return m.Creator
+//	}
+//	return ""
+//}
 
 func init() {
 	proto.RegisterType((*UserVault)(nil), "b9lab.tollroad.tollroad.UserVault")
@@ -143,13 +143,13 @@ func (m *UserVault) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if len(m.Creator) > 0 {
-		i -= len(m.Creator)
-		copy(dAtA[i:], m.Creator)
-		i = encodeVarintUserVault(dAtA, i, uint64(len(m.Creator)))
-		i--
-		dAtA[i] = 0x2a
-	}
+	//if len(m.Creator) > 0 {
+	//	i -= len(m.Creator)
+	//	copy(dAtA[i:], m.Creator)
+	//	i = encodeVarintUserVault(dAtA, i, uint64(len(m.Creator)))
+	//	i--
+	//	dAtA[i] = 0x2a
+	//}
 	if m.Balance != 0 {
 		i = encodeVarintUserVault(dAtA, i, uint64(m.Balance))
 		i--
@@ -211,10 +211,10 @@ func (m *UserVault) Size() (n int) {
 	if m.Balance != 0 {
 		n += 1 + sovUserVault(uint64(m.Balance))
 	}
-	l = len(m.Creator)
-	if l > 0 {
-		n += 1 + l + sovUserVault(uint64(l))
-	}
+	//l = len(m.Creator)
+	//if l > 0 {
+	//	n += 1 + l + sovUserVault(uint64(l))
+	//}
 	return n
 }
 
@@ -398,7 +398,7 @@ func (m *UserVault) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Creator = string(dAtA[iNdEx:postIndex])
+			//m.Creator = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
