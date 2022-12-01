@@ -11,17 +11,14 @@ import (
 
 func CmdCreateUserVault() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-user-vault [owner] [road-operator-index] [token] [balance]",
+		Use:   "create-user-vault [road-operator-index] [token] [balance] [owner]",
 		Short: "Create a new UserVault",
-		Args:  cobra.ExactArgs(4),
+		//Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-			// Get indexes
-			indexOwner := args[0]
-			indexRoadOperatorIndex := args[1]
-			indexToken := args[2]
-
-			// Get value arguments
-			argBalance, err := cast.ToUint64E(args[3])
+			indexRoadOperatorIndex := args[0]
+			indexToken := args[1]
+			argBalance, err := cast.ToUint64E(args[2])
+			indexOwner := args[3]
 			if err != nil {
 				return err
 			}
