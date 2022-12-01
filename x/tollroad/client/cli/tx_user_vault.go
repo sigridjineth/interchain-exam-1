@@ -46,7 +46,7 @@ func CmdUpdateUserVault() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "update-user-vault [owner] [road-operator-index] [token] [balance]",
 		Short: "Update a UserVault",
-		Args:  cobra.ExactArgs(4),
+		//Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			// Get indexes
 			//indexOwner := args[0]
@@ -91,7 +91,7 @@ func CmdDeleteUserVault() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "delete-user-vault [owner] [road-operator-index] [token]",
 		Short: "Delete a UserVault",
-		Args:  cobra.ExactArgs(3),
+		//Args:  cobra.ExactArgs(3),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			//indexOwner := args[0]
 			indexRoadOperatorIndex := args[1]
