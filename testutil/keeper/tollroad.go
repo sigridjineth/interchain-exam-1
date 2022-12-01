@@ -22,7 +22,7 @@ func TollroadKeeper(t testing.TB) (*keeper.Keeper, sdk.Context) {
 	return TollroadKeeperWithMocks(t, nil)
 }
 
-func TollroadKeeperWithMocks(t testing.TB, _ *mock_types.MockBankEscrowKeeper) (*keeper.Keeper, sdk.Context) {
+func TollroadKeeperWithMocks(t testing.TB, escrow *mock_types.MockBankEscrowKeeper) (*keeper.Keeper, sdk.Context) {
 	storeKey := sdk.NewKVStoreKey(types.StoreKey)
 	memStoreKey := storetypes.NewMemoryStoreKey(types.MemStoreKey)
 
@@ -42,6 +42,7 @@ func TollroadKeeperWithMocks(t testing.TB, _ *mock_types.MockBankEscrowKeeper) (
 		"TollroadParams",
 	)
 	k := keeper.NewKeeper(
+		escrow,
 		cdc,
 		storeKey,
 		memStoreKey,

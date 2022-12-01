@@ -2,7 +2,6 @@ package keeper
 
 import (
 	"context"
-
 	"github.com/b9lab/toll-road/x/tollroad/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
@@ -34,6 +33,15 @@ func (k msgServer) CreateUserVault(goCtx context.Context, msg *types.MsgCreateUs
 		ctx,
 		userVault,
 	)
+
+	AccAddressFromBech32, _ := sdk.AccAddressFromBech32(msg.Owner)
+	err := k.escrow.SendCoinsFromAccountToModule(ctx,
+		AccAddressFromBech32,
+		types.ModuleName, sdk.NewCoins(sdk.NewCoin(msg.Token, sdk.NewInt(int64(msg.Balance)))))
+	if err != nil {
+		return nil, err
+	}
+
 	return &types.MsgCreateUserVaultResponse{}, nil
 }
 

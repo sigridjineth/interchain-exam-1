@@ -163,6 +163,7 @@ var (
 
 	// module account permissions
 	maccPerms = map[string][]string{
+		tollroadmoduletypes.ModuleName: nil,
 		authtypes.FeeCollectorName:     nil,
 		distrtypes.ModuleName:          nil,
 		minttypes.ModuleName:           {authtypes.Minter},
@@ -390,6 +391,7 @@ func New(
 	monitoringModule := monitoringp.NewAppModule(appCodec, app.MonitoringKeeper)
 
 	app.TollroadKeeper = *tollroadmodulekeeper.NewKeeper(
+		app.BankKeeper,
 		appCodec,
 		keys[tollroadmoduletypes.StoreKey],
 		keys[tollroadmoduletypes.MemStoreKey],
