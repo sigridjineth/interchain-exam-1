@@ -12,4 +12,5 @@ var (
 	ErrZeroTokens        = sdkerrors.Register(ModuleName, 1101, "zero tokens")
 	ErrIndexSet          = sdkerrors.Register(ModuleName, 1102, "index already set: invalid request")
 	ErrInsufficientFunds = sdkerrors.Register(ModuleName, 1112, "insufficient funds")
+	ErrBankEscrow        = sdkerrors.Register(ModuleName, 1113, "bank error")
 )

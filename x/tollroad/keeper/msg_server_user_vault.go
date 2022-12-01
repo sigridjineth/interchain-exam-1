@@ -82,6 +82,38 @@ func (k msgServer) UpdateUserVault(goCtx context.Context, msg *types.MsgUpdateUs
 		Balance:           msg.Balance,
 	}
 
+	// If the balance field in the message is higher than the current vault balance,
+	// the difference is transferred from the user to the module. And should return an error if it is not possible.
+	AccAddressFromBech32, _ := sdk.AccAddressFromBech32(msg.Creator)
+
+	// If the balance field in the message is 0 then it returns an error,
+	// because conceptually, this should be a deletion.
+	if userVault.Balance == 0 {
+		return nil, sdkerrors.Wrap(types.ErrZeroTokens, "")
+	}
+
+	if userVault.Balance > valFound.Balance {
+		err := k.escrow.SendCoinsFromAccountToModule(ctx,
+			AccAddressFromBech32,
+			types.ModuleName, sdk.NewCoins(sdk.NewCoin(msg.Token, sdk.NewInt(int64(msg.Balance-valFound.Balance)))))
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	// If the balance field in the message is lower than the current vault balance,
+	// the difference is transferred from the module to the user. And should panic if it is not possible.
+	if userVault.Balance < valFound.Balance {
+		err := k.escrow.SendCoinsFromModuleToAccount(ctx,
+			types.ModuleName,
+			AccAddressFromBech32,
+			sdk.NewCoins(sdk.NewCoin(msg.Token, sdk.NewInt(int64(valFound.Balance-msg.Balance)))))
+		if err != nil {
+			panic(err.Error())
+			return nil, err
+		}
+	}
+
 	k.SetUserVault(ctx, userVault)
 
 	return &types.MsgUpdateUserVaultResponse{}, nil
