@@ -86,7 +86,7 @@ func TestUserVaultMsgServerCreateExists(t *testing.T) {
 		escrow.ExpectFundVault(wctx, creator, sdk.DefaultBondDenom, createRequest.Balance)
 		srv.CreateUserVault(wctx, createRequest)
 		_, err := srv.CreateUserVault(wctx, createRequest)
-		require.ErrorIs(t, err, types.ErrIndexSet)
+		require.ErrorContains(t, err, types.ErrIndexSet.Error())
 	}
 }
 

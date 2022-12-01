@@ -10,7 +10,7 @@ import (
 var (
 	ErrSample            = sdkerrors.Register(ModuleName, 1100, "sample error")
 	ErrZeroTokens        = sdkerrors.Register(ModuleName, 1101, "zero tokens")
-	ErrIndexSet          = sdkerrors.Register(ModuleName, 1102, "index already set")
+	ErrIndexSet          = sdkerrors.Register(ModuleName, 1102, "index already set: invalid request")
 	ErrBlackCannotPay    = sdkerrors.Register(ModuleName, 1112, "black cannot pay the wager")
 	ErrRedCannotPay      = sdkerrors.Register(ModuleName, 1113, "red cannot pay the wager")
 	ErrNothingToPay      = sdkerrors.Register(ModuleName, 1114, "there is nothing to pay, should not have been called")
