@@ -48,21 +48,11 @@ func CmdUpdateUserVault() *cobra.Command {
 		Short: "Update a UserVault",
 		//Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-			// Get indexes
-			//indexOwner := args[0]
-			indexRoadOperatorIndex := args[1]
-			indexToken := args[2]
-
-			// Get value arguments
-			argBalance, err := cast.ToUint64E(args[3])
-			if err != nil {
-				return err
-			}
-
+			indexRoadOperatorIndex := args[0]
+			indexToken := args[1]
+			argBalance, err := cast.ToUint64E(args[2])
 			clientCtx, err := client.GetClientTxContext(cmd)
-			if err != nil {
-				return err
-			}
+			indexOwner := clientCtx.GetFromAddress().String()
 
 			// func NewMsgUpdateUserVault(
 			//	creator string,
@@ -70,7 +60,7 @@ func CmdUpdateUserVault() *cobra.Command {
 			//	token string,
 			//	balance uint64,
 			msg := types.NewMsgUpdateUserVault(
-				clientCtx.GetFromAddress().String(),
+				indexOwner,
 				indexRoadOperatorIndex,
 				indexToken,
 				argBalance,
