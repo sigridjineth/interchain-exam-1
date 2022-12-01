@@ -340,11 +340,10 @@ func (m *MsgDeleteRoadOperatorResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_MsgDeleteRoadOperatorResponse proto.InternalMessageInfo
 
 type MsgCreateUserVault struct {
-	Creator           string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Owner             string `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
-	RoadOperatorIndex string `protobuf:"bytes,3,opt,name=roadOperatorIndex,proto3" json:"roadOperatorIndex,omitempty"`
-	Token             string `protobuf:"bytes,4,opt,name=token,proto3" json:"token,omitempty"`
-	Balance           uint64 `protobuf:"varint,5,opt,name=balance,proto3" json:"balance,omitempty"`
+	Owner             string `protobuf:"bytes,1,opt,name=owner,proto3" json:"owner,omitempty"`
+	RoadOperatorIndex string `protobuf:"bytes,2,opt,name=roadOperatorIndex,proto3" json:"roadOperatorIndex,omitempty"`
+	Token             string `protobuf:"bytes,3,opt,name=token,proto3" json:"token,omitempty"`
+	Balance           uint64 `protobuf:"varint,4,opt,name=balance,proto3" json:"balance,omitempty"`
 }
 
 func (m *MsgCreateUserVault) Reset()         { *m = MsgCreateUserVault{} }
@@ -380,12 +379,12 @@ func (m *MsgCreateUserVault) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgCreateUserVault proto.InternalMessageInfo
 
-func (m *MsgCreateUserVault) GetCreator() string {
-	if m != nil {
-		return m.Creator
-	}
-	return ""
-}
+//func (m *MsgCreateUserVault) GetCreator() string {
+//	if m != nil {
+//		return m.Creator
+//	}
+//	return ""
+//}
 
 func (m *MsgCreateUserVault) GetOwner() string {
 	if m != nil {
@@ -453,10 +452,9 @@ var xxx_messageInfo_MsgCreateUserVaultResponse proto.InternalMessageInfo
 
 type MsgUpdateUserVault struct {
 	Creator           string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Owner             string `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
-	RoadOperatorIndex string `protobuf:"bytes,3,opt,name=roadOperatorIndex,proto3" json:"roadOperatorIndex,omitempty"`
-	Token             string `protobuf:"bytes,4,opt,name=token,proto3" json:"token,omitempty"`
-	Balance           uint64 `protobuf:"varint,5,opt,name=balance,proto3" json:"balance,omitempty"`
+	RoadOperatorIndex string `protobuf:"bytes,2,opt,name=roadOperatorIndex,proto3" json:"roadOperatorIndex,omitempty"`
+	Token             string `protobuf:"bytes,3,opt,name=token,proto3" json:"token,omitempty"`
+	Balance           uint64 `protobuf:"varint,4,opt,name=balance,proto3" json:"balance,omitempty"`
 }
 
 func (m *MsgUpdateUserVault) Reset()         { *m = MsgUpdateUserVault{} }
@@ -499,12 +497,12 @@ func (m *MsgUpdateUserVault) GetCreator() string {
 	return ""
 }
 
-func (m *MsgUpdateUserVault) GetOwner() string {
-	if m != nil {
-		return m.Owner
-	}
-	return ""
-}
+//func (m *MsgUpdateUserVault) GetOwner() string {
+//	if m != nil {
+//		return m.Owner
+//	}
+//	return ""
+//}
 
 func (m *MsgUpdateUserVault) GetRoadOperatorIndex() string {
 	if m != nil {
@@ -565,9 +563,8 @@ var xxx_messageInfo_MsgUpdateUserVaultResponse proto.InternalMessageInfo
 
 type MsgDeleteUserVault struct {
 	Creator           string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Owner             string `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
-	RoadOperatorIndex string `protobuf:"bytes,3,opt,name=roadOperatorIndex,proto3" json:"roadOperatorIndex,omitempty"`
-	Token             string `protobuf:"bytes,4,opt,name=token,proto3" json:"token,omitempty"`
+	RoadOperatorIndex string `protobuf:"bytes,2,opt,name=roadOperatorIndex,proto3" json:"roadOperatorIndex,omitempty"`
+	Token             string `protobuf:"bytes,3,opt,name=token,proto3" json:"token,omitempty"`
 }
 
 func (m *MsgDeleteUserVault) Reset()         { *m = MsgDeleteUserVault{} }
@@ -610,12 +607,12 @@ func (m *MsgDeleteUserVault) GetCreator() string {
 	return ""
 }
 
-func (m *MsgDeleteUserVault) GetOwner() string {
-	if m != nil {
-		return m.Owner
-	}
-	return ""
-}
+//func (m *MsgDeleteUserVault) GetOwner() string {
+//	if m != nil {
+//		return m.Owner
+//	}
+//	return ""
+//}
 
 func (m *MsgDeleteUserVault) GetRoadOperatorIndex() string {
 	if m != nil {
@@ -1254,13 +1251,13 @@ func (m *MsgCreateUserVault) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0x12
 	}
-	if len(m.Creator) > 0 {
-		i -= len(m.Creator)
-		copy(dAtA[i:], m.Creator)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
-		i--
-		dAtA[i] = 0xa
-	}
+	//if len(m.Creator) > 0 {
+	//	i -= len(m.Creator)
+	//	copy(dAtA[i:], m.Creator)
+	//	i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+	//	i--
+	//	dAtA[i] = 0xa
+	//}
 	return len(dAtA) - i, nil
 }
 
@@ -1326,13 +1323,13 @@ func (m *MsgUpdateUserVault) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0x1a
 	}
-	if len(m.Owner) > 0 {
-		i -= len(m.Owner)
-		copy(dAtA[i:], m.Owner)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Owner)))
-		i--
-		dAtA[i] = 0x12
-	}
+	//if len(m.Owner) > 0 {
+	//	i -= len(m.Owner)
+	//	copy(dAtA[i:], m.Owner)
+	//	i = encodeVarintTx(dAtA, i, uint64(len(m.Owner)))
+	//	i--
+	//	dAtA[i] = 0x12
+	//}
 	if len(m.Creator) > 0 {
 		i -= len(m.Creator)
 		copy(dAtA[i:], m.Creator)
@@ -1400,13 +1397,13 @@ func (m *MsgDeleteUserVault) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0x1a
 	}
-	if len(m.Owner) > 0 {
-		i -= len(m.Owner)
-		copy(dAtA[i:], m.Owner)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Owner)))
-		i--
-		dAtA[i] = 0x12
-	}
+	//if len(m.Owner) > 0 {
+	//	i -= len(m.Owner)
+	//	copy(dAtA[i:], m.Owner)
+	//	i = encodeVarintTx(dAtA, i, uint64(len(m.Owner)))
+	//	i--
+	//	dAtA[i] = 0x12
+	//}
 	if len(m.Creator) > 0 {
 		i -= len(m.Creator)
 		copy(dAtA[i:], m.Creator)
@@ -1557,10 +1554,10 @@ func (m *MsgCreateUserVault) Size() (n int) {
 	}
 	var l int
 	_ = l
-	l = len(m.Creator)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
+	//l = len(m.Creator)
+	//if l > 0 {
+	//	n += 1 + l + sovTx(uint64(l))
+	//}
 	l = len(m.Owner)
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
@@ -1598,10 +1595,10 @@ func (m *MsgUpdateUserVault) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
 	}
-	l = len(m.Owner)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
+	//l = len(m.Owner)
+	//if l > 0 {
+	//	n += 1 + l + sovTx(uint64(l))
+	//}
 	l = len(m.RoadOperatorIndex)
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
@@ -1635,10 +1632,10 @@ func (m *MsgDeleteUserVault) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
 	}
-	l = len(m.Owner)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
+	//l = len(m.Owner)
+	//if l > 0 {
+	//	n += 1 + l + sovTx(uint64(l))
+	//}
 	l = len(m.RoadOperatorIndex)
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
@@ -2384,7 +2381,7 @@ func (m *MsgCreateUserVault) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Creator = string(dAtA[iNdEx:postIndex])
+			//m.Creator = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 2:
 			if wireType != 2 {
@@ -2663,7 +2660,7 @@ func (m *MsgUpdateUserVault) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Owner = string(dAtA[iNdEx:postIndex])
+			//m.Owner = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 3:
 			if wireType != 2 {
@@ -2910,7 +2907,7 @@ func (m *MsgDeleteUserVault) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Owner = string(dAtA[iNdEx:postIndex])
+			//m.Owner = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 3:
 			if wireType != 2 {

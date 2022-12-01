@@ -47,7 +47,7 @@ func TestUserVaultMsgServerCreateFive(t *testing.T) {
 	creator := "cosmos1jmjfq0tplp9tmx4v9uemw72y4d2wa5nr3xn9d3"
 	for i := 0; i < 5; i++ {
 		createRequest := &types.MsgCreateUserVault{
-			Creator:           creator,
+			//Creator:           creator,
 			RoadOperatorIndex: strconv.Itoa(rand.Intn(1000)),
 			Token:             sdk.DefaultBondDenom,
 			Balance:           uint64(rand.Intn(1000)),
@@ -56,7 +56,7 @@ func TestUserVaultMsgServerCreateFive(t *testing.T) {
 		_, err := srv.CreateUserVault(wctx, createRequest)
 		require.NoError(t, err)
 		rst, found := k.GetUserVault(ctx,
-			createRequest.Creator,
+			createRequest.Owner,
 			createRequest.RoadOperatorIndex,
 			createRequest.Token,
 		)
@@ -78,7 +78,7 @@ func TestUserVaultMsgServerCreateExists(t *testing.T) {
 	creator := "cosmos1jmjfq0tplp9tmx4v9uemw72y4d2wa5nr3xn9d3"
 	for i := 0; i < 5; i++ {
 		createRequest := &types.MsgCreateUserVault{
-			Creator:           creator,
+			Owner:             creator,
 			RoadOperatorIndex: strconv.Itoa(rand.Intn(1000)),
 			Token:             sdk.DefaultBondDenom,
 			Balance:           uint64(rand.Intn(1000)),
@@ -103,7 +103,7 @@ func TestUserVaultMsgServerCreateCases(t *testing.T) {
 		{
 			desc: "ErrorZero",
 			request: &types.MsgCreateUserVault{
-				Creator:           creator,
+				Owner:             creator,
 				RoadOperatorIndex: strconv.Itoa(rand.Intn(1000)),
 				Token:             sdk.DefaultBondDenom,
 				Balance:           0,
@@ -113,7 +113,7 @@ func TestUserVaultMsgServerCreateCases(t *testing.T) {
 		{
 			desc: "ErrorBank",
 			request: &types.MsgCreateUserVault{
-				Creator:           creator,
+				Owner:             creator,
 				RoadOperatorIndex: strconv.Itoa(rand.Intn(1000)),
 				Token:             sdk.DefaultBondDenom,
 				Balance:           100,
@@ -144,13 +144,13 @@ func TestUserVaultMsgServerCreateCases(t *testing.T) {
 			} else {
 				require.NoError(t, err)
 				rst, found := k.GetUserVault(ctx,
-					tc.request.Creator,
+					tc.request.Owner,
 					tc.request.RoadOperatorIndex,
 					tc.request.Token,
 				)
 				require.True(t, found)
 				require.EqualValues(t, types.UserVault{
-					Owner:             tc.request.Creator,
+					Owner:             tc.request.Owner,
 					RoadOperatorIndex: tc.request.RoadOperatorIndex,
 					Token:             tc.request.Token,
 					Balance:           tc.request.Balance,
@@ -266,7 +266,7 @@ func TestUserVaultMsgServerUpdate(t *testing.T) {
 			escrow.ExpectFundVault(wctx, creator, sdk.DefaultBondDenom, balance)
 
 			createRequest := &types.MsgCreateUserVault{
-				Creator:           creator,
+				Owner:             creator,
 				RoadOperatorIndex: roadOperatorIndex,
 				Token:             sdk.DefaultBondDenom,
 				Balance:           balance,
@@ -303,7 +303,7 @@ func TestUserVaultMsgServerUpdate(t *testing.T) {
 				} else {
 					require.NoError(t, err)
 					rst, found := k.GetUserVault(ctx,
-						createRequest.Creator,
+						createRequest.Owner,
 						createRequest.RoadOperatorIndex,
 						createRequest.Token,
 					)
@@ -389,7 +389,7 @@ func TestUserVaultMsgServerDelete(t *testing.T) {
 			escrow.ExpectFundVault(wctx, creator, sdk.DefaultBondDenom, 500)
 
 			_, err := srv.CreateUserVault(wctx, &types.MsgCreateUserVault{
-				Creator:           creator,
+				Owner:             creator,
 				RoadOperatorIndex: roadOperatorIndex,
 				Token:             sdk.DefaultBondDenom,
 				Balance:           500,

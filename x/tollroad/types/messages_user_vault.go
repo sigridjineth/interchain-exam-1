@@ -22,7 +22,7 @@ func NewMsgCreateUserVault(
 
 ) *MsgCreateUserVault {
 	return &MsgCreateUserVault{
-		Creator:           creator,
+		//Creator:           creator,
 		Owner:             owner,
 		RoadOperatorIndex: roadOperatorIndex,
 		Token:             token,
@@ -39,7 +39,7 @@ func (msg *MsgCreateUserVault) Type() string {
 }
 
 func (msg *MsgCreateUserVault) GetSigners() []sdk.AccAddress {
-	creator, err := sdk.AccAddressFromBech32(msg.Creator)
+	creator, err := sdk.AccAddressFromBech32(msg.Owner)
 	if err != nil {
 		panic(err)
 	}
@@ -52,7 +52,7 @@ func (msg *MsgCreateUserVault) GetSignBytes() []byte {
 }
 
 func (msg *MsgCreateUserVault) ValidateBasic() error {
-	_, err := sdk.AccAddressFromBech32(msg.Creator)
+	_, err := sdk.AccAddressFromBech32(msg.Owner)
 	if err != nil {
 		return sdkerrors.Wrapf(sdkerrors.ErrInvalidAddress, "invalid creator address (%s)", err)
 	}
@@ -70,8 +70,8 @@ func NewMsgUpdateUserVault(
 
 ) *MsgUpdateUserVault {
 	return &MsgUpdateUserVault{
-		Creator:           creator,
-		Owner:             owner,
+		Creator: creator,
+		//Owner:             owner,
 		RoadOperatorIndex: roadOperatorIndex,
 		Token:             token,
 		Balance:           balance,
@@ -117,8 +117,8 @@ func NewMsgDeleteUserVault(
 
 ) *MsgDeleteUserVault {
 	return &MsgDeleteUserVault{
-		Creator:           creator,
-		Owner:             owner,
+		Creator: creator,
+		//Owner:             owner,
 		RoadOperatorIndex: roadOperatorIndex,
 		Token:             token,
 	}

@@ -23,7 +23,7 @@ func (k msgServer) CreateUserVault(goCtx context.Context, msg *types.MsgCreateUs
 	}
 
 	var userVault = types.UserVault{
-		Creator:           msg.Creator,
+		//Creator:           msg.Creator,
 		Owner:             msg.Owner,
 		RoadOperatorIndex: msg.RoadOperatorIndex,
 		Token:             msg.Token,
@@ -43,7 +43,7 @@ func (k msgServer) UpdateUserVault(goCtx context.Context, msg *types.MsgUpdateUs
 	// Check if the value exists
 	valFound, isFound := k.GetUserVault(
 		ctx,
-		msg.Owner,
+		msg.Creator,
 		msg.RoadOperatorIndex,
 		msg.Token,
 	)
@@ -57,8 +57,8 @@ func (k msgServer) UpdateUserVault(goCtx context.Context, msg *types.MsgUpdateUs
 	}
 
 	var userVault = types.UserVault{
-		Creator:           msg.Creator,
-		Owner:             msg.Owner,
+		Creator: msg.Creator,
+		//Owner:             msg.Owner,
 		RoadOperatorIndex: msg.RoadOperatorIndex,
 		Token:             msg.Token,
 		Balance:           msg.Balance,
@@ -75,7 +75,7 @@ func (k msgServer) DeleteUserVault(goCtx context.Context, msg *types.MsgDeleteUs
 	// Check if the value exists
 	valFound, isFound := k.GetUserVault(
 		ctx,
-		msg.Owner,
+		msg.Creator,
 		msg.RoadOperatorIndex,
 		msg.Token,
 	)
@@ -90,7 +90,7 @@ func (k msgServer) DeleteUserVault(goCtx context.Context, msg *types.MsgDeleteUs
 
 	k.RemoveUserVault(
 		ctx,
-		msg.Owner,
+		msg.Creator,
 		msg.RoadOperatorIndex,
 		msg.Token,
 	)
