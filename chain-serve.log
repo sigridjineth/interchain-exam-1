@@ -1,0 +1,21 @@
+·
+· 🛸 Ignite CLI v0.25.2 is available!
+·
+· To upgrade your Ignite CLI version, see the upgrade doc: https://docs.ignite.com/guide/install.html#upgrading-your-ignite-cli-installation
+·
+··
+
+Cosmos SDK's version is: [33mstargate - v0.45.4[0m
+
+🛠️  Building proto...
+📦 Installing dependencies...
+🛠️  Building the blockchain...
+💿 Initializing the app...
+🙂 Created account "alice" with address "cosmos1chkj5vvxngtgugd8ez3c8jlc4jqhewwnd7mnn2" with mnemonic: "suffer daughter physical game coffee admit main law explain dolphin faith derive imitate bench junk bless walnut decline differ interest spoil love off action"
+🙂 Created account "bob" with address "cosmos1fwe022x3trqhf96puhd7vp9hjg6dgxtnfgwq0s" with mnemonic: "negative bonus trim unfair wire vague clutch forget exclude traffic panel human leopard person web radio drop unfold indicate expect peasant poet march second"
+🌍 Tendermint node: http://0.0.0.0:26657
+🌍 Blockchain API: http://0.0.0.0:1317
+🌍 Token faucet: http://0.0.0.0:4500
+💿 Saving genesis state...
+💿 Genesis state saved in /Users/sigridjin.eth/.ignite/local-chains/tollroad/exported_genesis.json
+aborted

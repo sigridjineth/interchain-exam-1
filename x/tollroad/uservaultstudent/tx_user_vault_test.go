@@ -64,7 +64,6 @@ func TestCreateUserVault(t *testing.T) {
 			}
 			args = append(args, fields...)  // 111
 			args = append(args, tc.args...) // flags
-			fmt.Println("args >>>>>>>>>>>>>>>> ", args)
 			out, err := clitestutil.ExecTestCLICmd(ctx, cli.CmdCreateUserVault(), args)
 			if tc.err != nil {
 				require.ErrorIs(t, err, tc.err)
