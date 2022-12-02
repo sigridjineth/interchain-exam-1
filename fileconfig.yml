@@ -49,7 +49,6 @@ configuration:
     - x/tollroad/roadoperatorstudent/msg_server_road_operator_test.go
     - x/tollroad/roadoperatorstudent/testing.sh
     - x/tollroad/simulation/road_operator.go
-    - x/tollroad/simulation/simap.go
     - x/tollroad/types/key_road_operator.go
     - x/tollroad/types/keys.go
     - x/tollroad/types/messages_road_operator_test.go

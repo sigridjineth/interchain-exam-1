@@ -25,40 +25,37 @@ panic: Unma🛠️  Building proto...
 💿 Saving genesis state...
 Error: failed to initialize database: resource temporarily unavailable
 Usage:
-  toll-roadd export [flags]
+  toll-roadd export [fla💿 Saving genesis state...
+panic: UnmarshalJSON cannot decode empty bytes
 
-Flags:
-      --for-zero-height              Export state to start at height zero (perform preproccessing)
-      --height int                   Export state from a particular height (-1 means latest height) (default -1)
-  -h, --help                         help for export
-      --jail-allowed-addrs strings   Comma-separated list of operator addresses of jailed validators to unjail
-
-Global Flags:
-      --home string         directory for config and data (default "/Users/sigridjin.eth/.toll-road")
-      --log_format string   The logging format (json|plain) (default "plain")
-      --log_level string    The logging level (trace|debug|info|warn|error|fatal|panic) (default "info")
-      --trace               print out full stack trace on errors
-
-: exit status 1
-650}, {{0x1052a5f30, 0x140005a5650}, 0x140005b01d0, {0x1052830e8, 0x14001266f40}, ...}, ...}, ...}, ...)
+goroutine 1 [running]:
+github.com/cosmos/cosmos-sdk/x/params/types.Subspace.Get({{_, _}, _, {_, _}, {_, _}, {_, _, _}, ...}, ...)
+	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/x/params/types/subspace.go:109 +0x20c
+github.com/cosmos/cosmos-sdk/x/params/types.Subspace.GetParamSet({{_, _}, _, {_, _}, {_, _}, {_, _, _}, ...}, ...)
+	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/x/params/types/subspace.go:222 +0x11c
+github.com/cosmos/cosmos-sdk/x/auth/keeper.AccountKeeper.GetParams(...)
+	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/x/auth/keeper/params.go:15
+github.com/cosmos/cosmos-sdk/x/auth.ExportGenesis({{0x106b22c40, 0x14000126008}, {0x106b2f640, 0x140013cd080}, {{0x0, 0x0}, {0x0, 0x0}, 0x0, {0x0, ...}, ...}, ...}, ...)
+	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/x/auth/genesis.go:32 +0xf0
+github.com/cosmos/cosmos-sdk/x/auth.AppModule.ExportGenesis({{}, {{0x106b0b0e8, 0x140013ce3c0}, {0x106b2df30, 0x140012004e0}, {{0x106b2df30, 0x140012004e0}, 0x14000123560, {0x106b0b0e8, 0x140013ce470}, ...}, ...}, ...}, ...)
 	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/x/auth/module.go:151 +0x68
-github.com/cosmos/cosmos-sdk/types/module.(*Manager).ExportGenesis(_, {{0x10529ac40, 0x14000056098}, {0x1052a7640, 0x1400124eec0}, {{0x0, 0x0}, {0x0, 0x0}, 0x0, ...}, ...}, ...)
+github.com/cosmos/cosmos-sdk/types/module.(*Manager).ExportGenesis(_, {{0x106b22c40, 0x14000126008}, {0x106b2f640, 0x140013cd080}, {{0x0, 0x0}, {0x0, 0x0}, 0x0, ...}, ...}, ...)
 	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/types/module/module.go:341 +0xd8
-github.com/b9lab/toll-road/app.(*App).ExportAppStateAndValidators(0x1400125c000, 0x0, {0x106286078, 0x0, 0x0})
+github.com/b9lab/toll-road/app.(*App).ExportAppStateAndValidators(0x14000184a80, 0x0, {0x107b0e078, 0x0, 0x0})
 	/Users/sigridjin.eth/Documents/github/p_jinhyung.park-exam-part-1/app/export.go:33 +0x168
-github.com/ignite-hq/cli/ignite/pkg/cosmoscmd.appCreator.appExport({{{0x10529eff8, 0x140005aa210}, {0x1052a9650, 0x140005a5650}, {0x1052a3cb8, 0x140005a6cc0}, 0x140005b01d0}, 0x105272960}, {0x10529bc70, 0x14001391980}, ...)
+github.com/ignite-hq/cli/ignite/pkg/cosmoscmd.appCreator.appExport({{{0x106b26ff8, 0x14000fc6cf0}, {0x106b31650, 0x140012004e0}, {0x106b2bcb8, 0x140011b5e40}, 0x14000123560}, 0x106afa960}, {0x106b23c70, 0x140012d6960}, ...)
 	/Users/sigridjin.eth/go/pkg/mod/github.com/ignite-hq/cli@v0.22.0/ignite/pkg/cosmoscmd/root.go:416 +0x194
-github.com/cosmos/cosmos-sdk/server.ExportCmd.func1(0x14001339680?, {0x1400131bd60?, 0x0?, 0x2?})
+github.com/cosmos/cosmos-sdk/server.ExportCmd.func1(0x14001238000?, {0x140012259c0?, 0x0?, 0x2?})
 	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/server/export.go:71 +0x2dc
-github.com/spf13/cobra.(*Command).execute(0x14001339680, {0x1400131bd40, 0x2, 0x2})
+github.com/spf13/cobra.(*Command).execute(0x14001238000, {0x140012259a0, 0x2, 0x2})
 	/Users/sigridjin.eth/go/pkg/mod/github.com/spf13/cobra@v1.4.0/command.go:856 +0x4c4
-github.com/spf13/cobra.(*Command).ExecuteC(0x140005d8500)
+github.com/spf13/cobra.(*Command).ExecuteC(0x140011e8c80)
 	/Users/sigridjin.eth/go/pkg/mod/github.com/spf13/cobra@v1.4.0/command.go:974 +0x354
 github.com/spf13/cobra.(*Command).Execute(...)
 	/Users/sigridjin.eth/go/pkg/mod/github.com/spf13/cobra@v1.4.0/command.go:902
 github.com/spf13/cobra.(*Command).ExecuteContext(...)
 	/Users/sigridjin.eth/go/pkg/mod/github.com/spf13/cobra@v1.4.0/command.go:895
-github.com/cosmos/cosmos-sdk/server/cmd.Execute(0x104311680?, {0x140005b4d80, 0x1f})
+github.com/cosmos/cosmos-sdk/server/cmd.Execute(0x105b99680?, {0x140011e2d80, 0x1f})
 	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/server/cmd/execute.go:36 +0x1a0
 main.main()
 	/Users/sigridjin.eth/Documents/github/p_jinhyung.park-exam-part-1/cmd/toll-roadd/main.go:21 +0x84
