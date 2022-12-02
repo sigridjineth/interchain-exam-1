@@ -12,51 +12,8 @@ Cosmos SDK's version is: [33mstargate - v0.45.4[0m
 📦 Installing dependencies...
 🛠️  Building the blockchain...
 💿 Initializing the app...
-🙂 Created account "alice" with address "cosmos1rp36tws3z6v7426632q6pa7e9svmny7ddcn5xy" with mnemonic: "stove cattle much awkward plastic jazz topic october hole type escape legend twelve rival unveil remind unique prize huge style letter humble traffic pumpkin"
-🙂 Created account "bob" with address "cosmos1v5e6lzv99gg3upte7x24at8668arsa2dxv3muh" with mnemonic: "century possible come spray misery fat noise marriage shiver gadget original innocent wrestle punch grief wood cactus quick method walk kid stairs icon menu"
+🙂 Created account "alice" with address "cosmos14u0s7eslt6mnppc72asgl64wngmdd7g8dhpysv" with mnemonic: "unveil tip insect maid river segment bar option move spirit future latin crumble file soon bounce outdoor crater sell identify blur large guess artwork"
+🙂 Created account "bob" with address "cosmos1mdxxpd3txjgnu47yx2v2cdvr6k9xfw6qjh7z9u" with mnemonic: "fox discover debate aerobic control enter type reveal ripple admit carry caught wine visa royal flee glove toe sniff avoid layer hamster cabin stool"
 🌍 Tendermint node: http://0.0.0.0:26657
 🌍 Blockchain API: http://0.0.0.0:1317
 🌍 Token faucet: http://0.0.0.0:4500
-[33mW💿 Saving genesis state...
-panic: Unma🛠️  Building proto...
-📦 Installing dependencies...
-🛠️  Building the blockchain...
-💿 Existent genesis detected, restoring the database...
-💿 Saving genesis state...
-Error: failed to initialize database: resource temporarily unavailable
-Usage:
-  toll-roadd export [fla💿 Saving genesis state...
-panic: UnmarshalJSON cannot decode empty bytes
-
-goroutine 1 [running]:
-github.com/cosmos/cosmos-sdk/x/params/types.Subspace.Get({{_, _}, _, {_, _}, {_, _}, {_, _, _}, ...}, ...)
-	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/x/params/types/subspace.go:109 +0x20c
-github.com/cosmos/cosmos-sdk/x/params/types.Subspace.GetParamSet({{_, _}, _, {_, _}, {_, _}, {_, _, _}, ...}, ...)
-	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/x/params/types/subspace.go:222 +0x11c
-github.com/cosmos/cosmos-sdk/x/auth/keeper.AccountKeeper.GetParams(...)
-	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/x/auth/keeper/params.go:15
-github.com/cosmos/cosmos-sdk/x/auth.ExportGenesis({{0x106b22c40, 0x14000126008}, {0x106b2f640, 0x140013cd080}, {{0x0, 0x0}, {0x0, 0x0}, 0x0, {0x0, ...}, ...}, ...}, ...)
-	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/x/auth/genesis.go:32 +0xf0
-github.com/cosmos/cosmos-sdk/x/auth.AppModule.ExportGenesis({{}, {{0x106b0b0e8, 0x140013ce3c0}, {0x106b2df30, 0x140012004e0}, {{0x106b2df30, 0x140012004e0}, 0x14000123560, {0x106b0b0e8, 0x140013ce470}, ...}, ...}, ...}, ...)
-	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/x/auth/module.go:151 +0x68
-github.com/cosmos/cosmos-sdk/types/module.(*Manager).ExportGenesis(_, {{0x106b22c40, 0x14000126008}, {0x106b2f640, 0x140013cd080}, {{0x0, 0x0}, {0x0, 0x0}, 0x0, ...}, ...}, ...)
-	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/types/module/module.go:341 +0xd8
-github.com/b9lab/toll-road/app.(*App).ExportAppStateAndValidators(0x14000184a80, 0x0, {0x107b0e078, 0x0, 0x0})
-	/Users/sigridjin.eth/Documents/github/p_jinhyung.park-exam-part-1/app/export.go:33 +0x168
-github.com/ignite-hq/cli/ignite/pkg/cosmoscmd.appCreator.appExport({{{0x106b26ff8, 0x14000fc6cf0}, {0x106b31650, 0x140012004e0}, {0x106b2bcb8, 0x140011b5e40}, 0x14000123560}, 0x106afa960}, {0x106b23c70, 0x140012d6960}, ...)
-	/Users/sigridjin.eth/go/pkg/mod/github.com/ignite-hq/cli@v0.22.0/ignite/pkg/cosmoscmd/root.go:416 +0x194
-github.com/cosmos/cosmos-sdk/server.ExportCmd.func1(0x14001238000?, {0x140012259c0?, 0x0?, 0x2?})
-	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/server/export.go:71 +0x2dc
-github.com/spf13/cobra.(*Command).execute(0x14001238000, {0x140012259a0, 0x2, 0x2})
-	/Users/sigridjin.eth/go/pkg/mod/github.com/spf13/cobra@v1.4.0/command.go:856 +0x4c4
-github.com/spf13/cobra.(*Command).ExecuteC(0x140011e8c80)
-	/Users/sigridjin.eth/go/pkg/mod/github.com/spf13/cobra@v1.4.0/command.go:974 +0x354
-github.com/spf13/cobra.(*Command).Execute(...)
-	/Users/sigridjin.eth/go/pkg/mod/github.com/spf13/cobra@v1.4.0/command.go:902
-github.com/spf13/cobra.(*Command).ExecuteContext(...)
-	/Users/sigridjin.eth/go/pkg/mod/github.com/spf13/cobra@v1.4.0/command.go:895
-github.com/cosmos/cosmos-sdk/server/cmd.Execute(0x105b99680?, {0x140011e2d80, 0x1f})
-	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/server/cmd/execute.go:36 +0x1a0
-main.main()
-	/Users/sigridjin.eth/Documents/github/p_jinhyung.park-exam-part-1/cmd/toll-roadd/main.go:21 +0x84
-: exit status 2

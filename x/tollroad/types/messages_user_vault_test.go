@@ -17,13 +17,13 @@ func TestMsgCreateUserVault_ValidateBasic(t *testing.T) {
 		{
 			name: "invalid address",
 			msg: MsgCreateUserVault{
-				Creator: "invalid_address",
+				Owner: "invalid_address",
 			},
 			err: sdkerrors.ErrInvalidAddress,
 		}, {
 			name: "valid address",
 			msg: MsgCreateUserVault{
-				Creator: sample.AccAddress(),
+				Owner: sample.AccAddress(),
 			},
 		},
 	}

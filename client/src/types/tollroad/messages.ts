@@ -42,7 +42,16 @@ export const typeUrlMsgDeleteUserVaultResponse =
 export const tollroadTypes: ReadonlyArray<[string, GeneratedType]> = [
     [typeUrlMsgCreateRoadOperator, MsgCreateRoadOperator],
     [typeUrlMsgCreateRoadOperatorResponse, MsgCreateRoadOperatorResponse],
-    // TODO other types
+    [typeUrlMsgUpdateRoadOperator, MsgUpdateRoadOperator],
+    [typeUrlMsgUpdateRoadOperatorResponse, MsgUpdateRoadOperatorResponse],
+    [typeUrlMsgDeleteRoadOperator, MsgDeleteRoadOperator],
+    [typeUrlMsgDeleteRoadOperatorResponse, MsgDeleteRoadOperatorResponse],
+    [typeUrlMsgCreateUserVault, MsgCreateUserVault],
+    [typeUrlMsgCreateUserVaultResponse, MsgCreateUserVaultResponse],
+    [typeUrlMsgUpdateUserVault, MsgUpdateUserVault],
+    [typeUrlMsgUpdateUserVaultResponse, MsgUpdateUserVaultResponse],
+    [typeUrlMsgDeleteUserVault, MsgDeleteUserVault],
+    [typeUrlMsgDeleteUserVaultResponse, MsgDeleteUserVaultResponse],
 ]
 
 export interface MsgCreateRoadOperatorEncodeObject extends EncodeObject {
@@ -71,6 +80,33 @@ export function isMsgCreateRoadOperatorEncodeObject(
     return (
         (encodeObject as MsgCreateRoadOperatorEncodeObject).typeUrl ===
         typeUrlMsgCreateRoadOperator
+    )
+}
+
+export function isMsgCreateUserVaultEncodeObject(
+    encodeObject: EncodeObject,
+): encodeObject is MsgCreateUserVaultEncodeObject {
+    return (
+        (encodeObject as MsgCreateUserVaultEncodeObject).typeUrl ===
+        typeUrlMsgCreateUserVault
+    )
+}
+
+export function isMsgDeleteRoadOperatorEncodeObject(
+    encodeObject: EncodeObject,
+): encodeObject is MsgDeleteRoadOperatorEncodeObject {
+    return (
+        (encodeObject as MsgDeleteRoadOperatorEncodeObject).typeUrl ===
+        typeUrlMsgDeleteRoadOperator
+    )
+}
+
+export function isMsgDeleteUserVaultEncodeObject(
+    encodeObject: EncodeObject,
+): encodeObject is MsgDeleteUserVaultEncodeObject {
+    return (
+        (encodeObject as MsgDeleteUserVaultEncodeObject).typeUrl ===
+        typeUrlMsgDeleteUserVault
     )
 }
 
