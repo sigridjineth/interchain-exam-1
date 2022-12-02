@@ -287,16 +287,16 @@ export default {
 		},
 		
 		
-		async sendMsgCreateRoadOperator({ rootGetters }, { value, fee = [], memo = '' }) {
+		async sendMsgDeleteRoadOperator({ rootGetters }, { value, fee = [], memo = '' }) {
 			try {
 				const client=await initClient(rootGetters)
-				const result = await client.B9LabTollroadTollroad.tx.sendMsgCreateRoadOperator({ value, fee: {amount: fee, gas: "200000"}, memo })
+				const result = await client.B9LabTollroadTollroad.tx.sendMsgDeleteRoadOperator({ value, fee: {amount: fee, gas: "200000"}, memo })
 				return result
 			} catch (e) {
 				if (e == MissingWalletError) {
-					throw new Error('TxClient:MsgCreateRoadOperator:Init Could not initialize signing client. Wallet is required.')
+					throw new Error('TxClient:MsgDeleteRoadOperator:Init Could not initialize signing client. Wallet is required.')
 				}else{
-					throw new Error('TxClient:MsgCreateRoadOperator:Send Could not broadcast Tx: '+ e.message)
+					throw new Error('TxClient:MsgDeleteRoadOperator:Send Could not broadcast Tx: '+ e.message)
 				}
 			}
 		},
@@ -313,29 +313,29 @@ export default {
 				}
 			}
 		},
-		async sendMsgDeleteRoadOperator({ rootGetters }, { value, fee = [], memo = '' }) {
+		async sendMsgUpdateUserVault({ rootGetters }, { value, fee = [], memo = '' }) {
 			try {
 				const client=await initClient(rootGetters)
-				const result = await client.B9LabTollroadTollroad.tx.sendMsgDeleteRoadOperator({ value, fee: {amount: fee, gas: "200000"}, memo })
+				const result = await client.B9LabTollroadTollroad.tx.sendMsgUpdateUserVault({ value, fee: {amount: fee, gas: "200000"}, memo })
 				return result
 			} catch (e) {
 				if (e == MissingWalletError) {
-					throw new Error('TxClient:MsgDeleteRoadOperator:Init Could not initialize signing client. Wallet is required.')
+					throw new Error('TxClient:MsgUpdateUserVault:Init Could not initialize signing client. Wallet is required.')
 				}else{
-					throw new Error('TxClient:MsgDeleteRoadOperator:Send Could not broadcast Tx: '+ e.message)
+					throw new Error('TxClient:MsgUpdateUserVault:Send Could not broadcast Tx: '+ e.message)
 				}
 			}
 		},
-		async sendMsgDeleteUserVault({ rootGetters }, { value, fee = [], memo = '' }) {
+		async sendMsgCreateRoadOperator({ rootGetters }, { value, fee = [], memo = '' }) {
 			try {
 				const client=await initClient(rootGetters)
-				const result = await client.B9LabTollroadTollroad.tx.sendMsgDeleteUserVault({ value, fee: {amount: fee, gas: "200000"}, memo })
+				const result = await client.B9LabTollroadTollroad.tx.sendMsgCreateRoadOperator({ value, fee: {amount: fee, gas: "200000"}, memo })
 				return result
 			} catch (e) {
 				if (e == MissingWalletError) {
-					throw new Error('TxClient:MsgDeleteUserVault:Init Could not initialize signing client. Wallet is required.')
+					throw new Error('TxClient:MsgCreateRoadOperator:Init Could not initialize signing client. Wallet is required.')
 				}else{
-					throw new Error('TxClient:MsgDeleteUserVault:Send Could not broadcast Tx: '+ e.message)
+					throw new Error('TxClient:MsgCreateRoadOperator:Send Could not broadcast Tx: '+ e.message)
 				}
 			}
 		},
@@ -352,30 +352,30 @@ export default {
 				}
 			}
 		},
-		async sendMsgUpdateUserVault({ rootGetters }, { value, fee = [], memo = '' }) {
+		async sendMsgDeleteUserVault({ rootGetters }, { value, fee = [], memo = '' }) {
 			try {
 				const client=await initClient(rootGetters)
-				const result = await client.B9LabTollroadTollroad.tx.sendMsgUpdateUserVault({ value, fee: {amount: fee, gas: "200000"}, memo })
+				const result = await client.B9LabTollroadTollroad.tx.sendMsgDeleteUserVault({ value, fee: {amount: fee, gas: "200000"}, memo })
 				return result
 			} catch (e) {
 				if (e == MissingWalletError) {
-					throw new Error('TxClient:MsgUpdateUserVault:Init Could not initialize signing client. Wallet is required.')
+					throw new Error('TxClient:MsgDeleteUserVault:Init Could not initialize signing client. Wallet is required.')
 				}else{
-					throw new Error('TxClient:MsgUpdateUserVault:Send Could not broadcast Tx: '+ e.message)
+					throw new Error('TxClient:MsgDeleteUserVault:Send Could not broadcast Tx: '+ e.message)
 				}
 			}
 		},
 		
-		async MsgCreateRoadOperator({ rootGetters }, { value }) {
+		async MsgDeleteRoadOperator({ rootGetters }, { value }) {
 			try {
 				const client=initClient(rootGetters)
-				const msg = await client.B9LabTollroadTollroad.tx.msgCreateRoadOperator({value})
+				const msg = await client.B9LabTollroadTollroad.tx.msgDeleteRoadOperator({value})
 				return msg
 			} catch (e) {
 				if (e == MissingWalletError) {
-					throw new Error('TxClient:MsgCreateRoadOperator:Init Could not initialize signing client. Wallet is required.')
+					throw new Error('TxClient:MsgDeleteRoadOperator:Init Could not initialize signing client. Wallet is required.')
 				} else{
-					throw new Error('TxClient:MsgCreateRoadOperator:Create Could not create message: ' + e.message)
+					throw new Error('TxClient:MsgDeleteRoadOperator:Create Could not create message: ' + e.message)
 				}
 			}
 		},
@@ -392,29 +392,29 @@ export default {
 				}
 			}
 		},
-		async MsgDeleteRoadOperator({ rootGetters }, { value }) {
+		async MsgUpdateUserVault({ rootGetters }, { value }) {
 			try {
 				const client=initClient(rootGetters)
-				const msg = await client.B9LabTollroadTollroad.tx.msgDeleteRoadOperator({value})
+				const msg = await client.B9LabTollroadTollroad.tx.msgUpdateUserVault({value})
 				return msg
 			} catch (e) {
 				if (e == MissingWalletError) {
-					throw new Error('TxClient:MsgDeleteRoadOperator:Init Could not initialize signing client. Wallet is required.')
+					throw new Error('TxClient:MsgUpdateUserVault:Init Could not initialize signing client. Wallet is required.')
 				} else{
-					throw new Error('TxClient:MsgDeleteRoadOperator:Create Could not create message: ' + e.message)
+					throw new Error('TxClient:MsgUpdateUserVault:Create Could not create message: ' + e.message)
 				}
 			}
 		},
-		async MsgDeleteUserVault({ rootGetters }, { value }) {
+		async MsgCreateRoadOperator({ rootGetters }, { value }) {
 			try {
 				const client=initClient(rootGetters)
-				const msg = await client.B9LabTollroadTollroad.tx.msgDeleteUserVault({value})
+				const msg = await client.B9LabTollroadTollroad.tx.msgCreateRoadOperator({value})
 				return msg
 			} catch (e) {
 				if (e == MissingWalletError) {
-					throw new Error('TxClient:MsgDeleteUserVault:Init Could not initialize signing client. Wallet is required.')
+					throw new Error('TxClient:MsgCreateRoadOperator:Init Could not initialize signing client. Wallet is required.')
 				} else{
-					throw new Error('TxClient:MsgDeleteUserVault:Create Could not create message: ' + e.message)
+					throw new Error('TxClient:MsgCreateRoadOperator:Create Could not create message: ' + e.message)
 				}
 			}
 		},
@@ -431,16 +431,16 @@ export default {
 				}
 			}
 		},
-		async MsgUpdateUserVault({ rootGetters }, { value }) {
+		async MsgDeleteUserVault({ rootGetters }, { value }) {
 			try {
 				const client=initClient(rootGetters)
-				const msg = await client.B9LabTollroadTollroad.tx.msgUpdateUserVault({value})
+				const msg = await client.B9LabTollroadTollroad.tx.msgDeleteUserVault({value})
 				return msg
 			} catch (e) {
 				if (e == MissingWalletError) {
-					throw new Error('TxClient:MsgUpdateUserVault:Init Could not initialize signing client. Wallet is required.')
+					throw new Error('TxClient:MsgDeleteUserVault:Init Could not initialize signing client. Wallet is required.')
 				} else{
-					throw new Error('TxClient:MsgUpdateUserVault:Create Could not create message: ' + e.message)
+					throw new Error('TxClient:MsgDeleteUserVault:Create Could not create message: ' + e.message)
 				}
 			}
 		},

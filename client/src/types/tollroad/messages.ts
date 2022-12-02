@@ -50,6 +50,21 @@ export interface MsgCreateRoadOperatorEncodeObject extends EncodeObject {
     readonly value: Partial<MsgCreateRoadOperator>
 }
 
+export interface MsgCreateUserVaultEncodeObject extends EncodeObject {
+    readonly typeUrl: "/b9lab.tollroad.tollroad.MsgCreateUserVault"
+    readonly value: Partial<MsgCreateUserVault>
+}
+
+export interface MsgDeleteRoadOperatorEncodeObject extends EncodeObject {
+    readonly typeUrl: "/b9lab.tollroad.tollroad.MsgDeleteRoadOperator"
+    readonly value: Partial<MsgDeleteRoadOperator>
+}
+
+export interface MsgDeleteUserVaultEncodeObject extends EncodeObject {
+    readonly typeUrl: "/b9lab.tollroad.tollroad.MsgDeleteUserVault"
+    readonly value: Partial<MsgDeleteUserVault>
+}
+
 export function isMsgCreateRoadOperatorEncodeObject(
     encodeObject: EncodeObject,
 ): encodeObject is MsgCreateRoadOperatorEncodeObject {
