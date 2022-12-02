@@ -287,6 +287,32 @@ export default {
 		},
 		
 		
+		async sendMsgCreateRoadOperator({ rootGetters }, { value, fee = [], memo = '' }) {
+			try {
+				const client=await initClient(rootGetters)
+				const result = await client.B9LabTollroadTollroad.tx.sendMsgCreateRoadOperator({ value, fee: {amount: fee, gas: "200000"}, memo })
+				return result
+			} catch (e) {
+				if (e == MissingWalletError) {
+					throw new Error('TxClient:MsgCreateRoadOperator:Init Could not initialize signing client. Wallet is required.')
+				}else{
+					throw new Error('TxClient:MsgCreateRoadOperator:Send Could not broadcast Tx: '+ e.message)
+				}
+			}
+		},
+		async sendMsgUpdateUserVault({ rootGetters }, { value, fee = [], memo = '' }) {
+			try {
+				const client=await initClient(rootGetters)
+				const result = await client.B9LabTollroadTollroad.tx.sendMsgUpdateUserVault({ value, fee: {amount: fee, gas: "200000"}, memo })
+				return result
+			} catch (e) {
+				if (e == MissingWalletError) {
+					throw new Error('TxClient:MsgUpdateUserVault:Init Could not initialize signing client. Wallet is required.')
+				}else{
+					throw new Error('TxClient:MsgUpdateUserVault:Send Could not broadcast Tx: '+ e.message)
+				}
+			}
+		},
 		async sendMsgDeleteRoadOperator({ rootGetters }, { value, fee = [], memo = '' }) {
 			try {
 				const client=await initClient(rootGetters)
@@ -310,32 +336,6 @@ export default {
 					throw new Error('TxClient:MsgUpdateRoadOperator:Init Could not initialize signing client. Wallet is required.')
 				}else{
 					throw new Error('TxClient:MsgUpdateRoadOperator:Send Could not broadcast Tx: '+ e.message)
-				}
-			}
-		},
-		async sendMsgUpdateUserVault({ rootGetters }, { value, fee = [], memo = '' }) {
-			try {
-				const client=await initClient(rootGetters)
-				const result = await client.B9LabTollroadTollroad.tx.sendMsgUpdateUserVault({ value, fee: {amount: fee, gas: "200000"}, memo })
-				return result
-			} catch (e) {
-				if (e == MissingWalletError) {
-					throw new Error('TxClient:MsgUpdateUserVault:Init Could not initialize signing client. Wallet is required.')
-				}else{
-					throw new Error('TxClient:MsgUpdateUserVault:Send Could not broadcast Tx: '+ e.message)
-				}
-			}
-		},
-		async sendMsgCreateRoadOperator({ rootGetters }, { value, fee = [], memo = '' }) {
-			try {
-				const client=await initClient(rootGetters)
-				const result = await client.B9LabTollroadTollroad.tx.sendMsgCreateRoadOperator({ value, fee: {amount: fee, gas: "200000"}, memo })
-				return result
-			} catch (e) {
-				if (e == MissingWalletError) {
-					throw new Error('TxClient:MsgCreateRoadOperator:Init Could not initialize signing client. Wallet is required.')
-				}else{
-					throw new Error('TxClient:MsgCreateRoadOperator:Send Could not broadcast Tx: '+ e.message)
 				}
 			}
 		},
@@ -366,6 +366,32 @@ export default {
 			}
 		},
 		
+		async MsgCreateRoadOperator({ rootGetters }, { value }) {
+			try {
+				const client=initClient(rootGetters)
+				const msg = await client.B9LabTollroadTollroad.tx.msgCreateRoadOperator({value})
+				return msg
+			} catch (e) {
+				if (e == MissingWalletError) {
+					throw new Error('TxClient:MsgCreateRoadOperator:Init Could not initialize signing client. Wallet is required.')
+				} else{
+					throw new Error('TxClient:MsgCreateRoadOperator:Create Could not create message: ' + e.message)
+				}
+			}
+		},
+		async MsgUpdateUserVault({ rootGetters }, { value }) {
+			try {
+				const client=initClient(rootGetters)
+				const msg = await client.B9LabTollroadTollroad.tx.msgUpdateUserVault({value})
+				return msg
+			} catch (e) {
+				if (e == MissingWalletError) {
+					throw new Error('TxClient:MsgUpdateUserVault:Init Could not initialize signing client. Wallet is required.')
+				} else{
+					throw new Error('TxClient:MsgUpdateUserVault:Create Could not create message: ' + e.message)
+				}
+			}
+		},
 		async MsgDeleteRoadOperator({ rootGetters }, { value }) {
 			try {
 				const client=initClient(rootGetters)
@@ -389,32 +415,6 @@ export default {
 					throw new Error('TxClient:MsgUpdateRoadOperator:Init Could not initialize signing client. Wallet is required.')
 				} else{
 					throw new Error('TxClient:MsgUpdateRoadOperator:Create Could not create message: ' + e.message)
-				}
-			}
-		},
-		async MsgUpdateUserVault({ rootGetters }, { value }) {
-			try {
-				const client=initClient(rootGetters)
-				const msg = await client.B9LabTollroadTollroad.tx.msgUpdateUserVault({value})
-				return msg
-			} catch (e) {
-				if (e == MissingWalletError) {
-					throw new Error('TxClient:MsgUpdateUserVault:Init Could not initialize signing client. Wallet is required.')
-				} else{
-					throw new Error('TxClient:MsgUpdateUserVault:Create Could not create message: ' + e.message)
-				}
-			}
-		},
-		async MsgCreateRoadOperator({ rootGetters }, { value }) {
-			try {
-				const client=initClient(rootGetters)
-				const msg = await client.B9LabTollroadTollroad.tx.msgCreateRoadOperator({value})
-				return msg
-			} catch (e) {
-				if (e == MissingWalletError) {
-					throw new Error('TxClient:MsgCreateRoadOperator:Init Could not initialize signing client. Wallet is required.')
-				} else{
-					throw new Error('TxClient:MsgCreateRoadOperator:Create Could not create message: ' + e.message)
 				}
 			}
 		},
