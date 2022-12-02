@@ -54,11 +54,6 @@ func CmdUpdateUserVault() *cobra.Command {
 			clientCtx, err := client.GetClientTxContext(cmd)
 			indexOwner := clientCtx.GetFromAddress().String()
 
-			// func NewMsgUpdateUserVault(
-			//	creator string,
-			//	roadOperatorIndex string,
-			//	token string,
-			//	balance uint64,
 			msg := types.NewMsgUpdateUserVault(
 				indexOwner,
 				indexRoadOperatorIndex,
@@ -83,9 +78,8 @@ func CmdDeleteUserVault() *cobra.Command {
 		Short: "Delete a UserVault",
 		//Args:  cobra.ExactArgs(3),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-			//indexOwner := args[0]
-			indexRoadOperatorIndex := args[1]
-			indexToken := args[2]
+			indexRoadOperatorIndex := args[0]
+			indexToken := args[1]
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
