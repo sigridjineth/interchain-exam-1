@@ -8,35 +8,17 @@ import { IgniteClient } from "../client"
 import { MissingWalletError } from "../helpers"
 import { Api } from "./rest";
 import { MsgCreateRoadOperator } from "./types/tollroad/tx";
-import { MsgUpdateRoadOperator } from "./types/tollroad/tx";
-import { MsgDeleteRoadOperator } from "./types/tollroad/tx";
-import { MsgDeleteUserVault } from "./types/tollroad/tx";
 import { MsgCreateUserVault } from "./types/tollroad/tx";
+import { MsgDeleteUserVault } from "./types/tollroad/tx";
+import { MsgUpdateRoadOperator } from "./types/tollroad/tx";
 import { MsgUpdateUserVault } from "./types/tollroad/tx";
+import { MsgDeleteRoadOperator } from "./types/tollroad/tx";
 
 
-export { MsgCreateRoadOperator, MsgUpdateRoadOperator, MsgDeleteRoadOperator, MsgDeleteUserVault, MsgCreateUserVault, MsgUpdateUserVault };
+export { MsgCreateRoadOperator, MsgCreateUserVault, MsgDeleteUserVault, MsgUpdateRoadOperator, MsgUpdateUserVault, MsgDeleteRoadOperator };
 
 type sendMsgCreateRoadOperatorParams = {
   value: MsgCreateRoadOperator,
-  fee?: StdFee,
-  memo?: string
-};
-
-type sendMsgUpdateRoadOperatorParams = {
-  value: MsgUpdateRoadOperator,
-  fee?: StdFee,
-  memo?: string
-};
-
-type sendMsgDeleteRoadOperatorParams = {
-  value: MsgDeleteRoadOperator,
-  fee?: StdFee,
-  memo?: string
-};
-
-type sendMsgDeleteUserVaultParams = {
-  value: MsgDeleteUserVault,
   fee?: StdFee,
   memo?: string
 };
@@ -47,8 +29,26 @@ type sendMsgCreateUserVaultParams = {
   memo?: string
 };
 
+type sendMsgDeleteUserVaultParams = {
+  value: MsgDeleteUserVault,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendMsgUpdateRoadOperatorParams = {
+  value: MsgUpdateRoadOperator,
+  fee?: StdFee,
+  memo?: string
+};
+
 type sendMsgUpdateUserVaultParams = {
   value: MsgUpdateUserVault,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendMsgDeleteRoadOperatorParams = {
+  value: MsgDeleteRoadOperator,
   fee?: StdFee,
   memo?: string
 };
@@ -58,24 +58,24 @@ type msgCreateRoadOperatorParams = {
   value: MsgCreateRoadOperator,
 };
 
-type msgUpdateRoadOperatorParams = {
-  value: MsgUpdateRoadOperator,
-};
-
-type msgDeleteRoadOperatorParams = {
-  value: MsgDeleteRoadOperator,
+type msgCreateUserVaultParams = {
+  value: MsgCreateUserVault,
 };
 
 type msgDeleteUserVaultParams = {
   value: MsgDeleteUserVault,
 };
 
-type msgCreateUserVaultParams = {
-  value: MsgCreateUserVault,
+type msgUpdateRoadOperatorParams = {
+  value: MsgUpdateRoadOperator,
 };
 
 type msgUpdateUserVaultParams = {
   value: MsgUpdateUserVault,
+};
+
+type msgDeleteRoadOperatorParams = {
+  value: MsgDeleteRoadOperator,
 };
 
 
@@ -110,31 +110,17 @@ export const txClient = ({ signer, prefix, addr }: TxClientOptions = { addr: "ht
 			}
 		},
 		
-		async sendMsgUpdateRoadOperator({ value, fee, memo }: sendMsgUpdateRoadOperatorParams): Promise<DeliverTxResponse> {
+		async sendMsgCreateUserVault({ value, fee, memo }: sendMsgCreateUserVaultParams): Promise<DeliverTxResponse> {
 			if (!signer) {
-					throw new Error('TxClient:sendMsgUpdateRoadOperator: Unable to sign Tx. Signer is not present.')
+					throw new Error('TxClient:sendMsgCreateUserVault: Unable to sign Tx. Signer is not present.')
 			}
 			try {			
 				const { address } = (await signer.getAccounts())[0]; 
 				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry, prefix});
-				let msg = this.msgUpdateRoadOperator({ value: MsgUpdateRoadOperator.fromPartial(value) })
+				let msg = this.msgCreateUserVault({ value: MsgCreateUserVault.fromPartial(value) })
 				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
 			} catch (e: any) {
-				throw new Error('TxClient:sendMsgUpdateRoadOperator: Could not broadcast Tx: '+ e.message)
-			}
-		},
-		
-		async sendMsgDeleteRoadOperator({ value, fee, memo }: sendMsgDeleteRoadOperatorParams): Promise<DeliverTxResponse> {
-			if (!signer) {
-					throw new Error('TxClient:sendMsgDeleteRoadOperator: Unable to sign Tx. Signer is not present.')
-			}
-			try {			
-				const { address } = (await signer.getAccounts())[0]; 
-				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry, prefix});
-				let msg = this.msgDeleteRoadOperator({ value: MsgDeleteRoadOperator.fromPartial(value) })
-				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
-			} catch (e: any) {
-				throw new Error('TxClient:sendMsgDeleteRoadOperator: Could not broadcast Tx: '+ e.message)
+				throw new Error('TxClient:sendMsgCreateUserVault: Could not broadcast Tx: '+ e.message)
 			}
 		},
 		
@@ -152,17 +138,17 @@ export const txClient = ({ signer, prefix, addr }: TxClientOptions = { addr: "ht
 			}
 		},
 		
-		async sendMsgCreateUserVault({ value, fee, memo }: sendMsgCreateUserVaultParams): Promise<DeliverTxResponse> {
+		async sendMsgUpdateRoadOperator({ value, fee, memo }: sendMsgUpdateRoadOperatorParams): Promise<DeliverTxResponse> {
 			if (!signer) {
-					throw new Error('TxClient:sendMsgCreateUserVault: Unable to sign Tx. Signer is not present.')
+					throw new Error('TxClient:sendMsgUpdateRoadOperator: Unable to sign Tx. Signer is not present.')
 			}
 			try {			
 				const { address } = (await signer.getAccounts())[0]; 
 				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry, prefix});
-				let msg = this.msgCreateUserVault({ value: MsgCreateUserVault.fromPartial(value) })
+				let msg = this.msgUpdateRoadOperator({ value: MsgUpdateRoadOperator.fromPartial(value) })
 				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
 			} catch (e: any) {
-				throw new Error('TxClient:sendMsgCreateUserVault: Could not broadcast Tx: '+ e.message)
+				throw new Error('TxClient:sendMsgUpdateRoadOperator: Could not broadcast Tx: '+ e.message)
 			}
 		},
 		
@@ -180,36 +166,26 @@ export const txClient = ({ signer, prefix, addr }: TxClientOptions = { addr: "ht
 			}
 		},
 		
+		async sendMsgDeleteRoadOperator({ value, fee, memo }: sendMsgDeleteRoadOperatorParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendMsgDeleteRoadOperator: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry, prefix});
+				let msg = this.msgDeleteRoadOperator({ value: MsgDeleteRoadOperator.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendMsgDeleteRoadOperator: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
 		
 		msgCreateRoadOperator({ value }: msgCreateRoadOperatorParams): EncodeObject {
 			try {
 				return { typeUrl: "/b9lab.tollroad.tollroad.MsgCreateRoadOperator", value: MsgCreateRoadOperator.fromPartial( value ) }  
 			} catch (e: any) {
 				throw new Error('TxClient:MsgCreateRoadOperator: Could not create message: ' + e.message)
-			}
-		},
-		
-		msgUpdateRoadOperator({ value }: msgUpdateRoadOperatorParams): EncodeObject {
-			try {
-				return { typeUrl: "/b9lab.tollroad.tollroad.MsgUpdateRoadOperator", value: MsgUpdateRoadOperator.fromPartial( value ) }  
-			} catch (e: any) {
-				throw new Error('TxClient:MsgUpdateRoadOperator: Could not create message: ' + e.message)
-			}
-		},
-		
-		msgDeleteRoadOperator({ value }: msgDeleteRoadOperatorParams): EncodeObject {
-			try {
-				return { typeUrl: "/b9lab.tollroad.tollroad.MsgDeleteRoadOperator", value: MsgDeleteRoadOperator.fromPartial( value ) }  
-			} catch (e: any) {
-				throw new Error('TxClient:MsgDeleteRoadOperator: Could not create message: ' + e.message)
-			}
-		},
-		
-		msgDeleteUserVault({ value }: msgDeleteUserVaultParams): EncodeObject {
-			try {
-				return { typeUrl: "/b9lab.tollroad.tollroad.MsgDeleteUserVault", value: MsgDeleteUserVault.fromPartial( value ) }  
-			} catch (e: any) {
-				throw new Error('TxClient:MsgDeleteUserVault: Could not create message: ' + e.message)
 			}
 		},
 		
@@ -221,11 +197,35 @@ export const txClient = ({ signer, prefix, addr }: TxClientOptions = { addr: "ht
 			}
 		},
 		
+		msgDeleteUserVault({ value }: msgDeleteUserVaultParams): EncodeObject {
+			try {
+				return { typeUrl: "/b9lab.tollroad.tollroad.MsgDeleteUserVault", value: MsgDeleteUserVault.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgDeleteUserVault: Could not create message: ' + e.message)
+			}
+		},
+		
+		msgUpdateRoadOperator({ value }: msgUpdateRoadOperatorParams): EncodeObject {
+			try {
+				return { typeUrl: "/b9lab.tollroad.tollroad.MsgUpdateRoadOperator", value: MsgUpdateRoadOperator.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgUpdateRoadOperator: Could not create message: ' + e.message)
+			}
+		},
+		
 		msgUpdateUserVault({ value }: msgUpdateUserVaultParams): EncodeObject {
 			try {
 				return { typeUrl: "/b9lab.tollroad.tollroad.MsgUpdateUserVault", value: MsgUpdateUserVault.fromPartial( value ) }  
 			} catch (e: any) {
 				throw new Error('TxClient:MsgUpdateUserVault: Could not create message: ' + e.message)
+			}
+		},
+		
+		msgDeleteRoadOperator({ value }: msgDeleteRoadOperatorParams): EncodeObject {
+			try {
+				return { typeUrl: "/b9lab.tollroad.tollroad.MsgDeleteRoadOperator", value: MsgDeleteRoadOperator.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgDeleteRoadOperator: Could not create message: ' + e.message)
 			}
 		},
 		
