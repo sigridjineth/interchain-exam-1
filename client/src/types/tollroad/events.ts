@@ -1,28 +1,24 @@
-import { Event, Log } from "@cosmjs/stargate/build/logs"
+import {Log} from "@cosmjs/stargate/build/logs"
 
-export type RoadOperatorCreatedEvent = Event
+// export type RoadOperatorCreatedEvent = Event
 
 export const getCreateRoadOperatorEvent = (
     log: Log,
-): RoadOperatorCreatedEvent | undefined => {
-    if (log.events.length !== 1) {
-        return undefined
-    }
-    const event = log.events[0]
-    if (event.type !== "tollroad/RoadOperatorCreated") {
+) => {
+    const event = log.events.find((e) => e.type === "new-road-operator-created")
+    if (!event) {
         return undefined
     }
     return event
 }
 
 export const getCreatedRoadOperatorId = (
-    createdRoadOperatorEvent: RoadOperatorCreatedEvent,
+    createdRoadOperatorEvent,
 ): string => {
-    const attribute = createdRoadOperatorEvent.attributes.find(
-        (attribute) => attribute.key === "index",
-    )
-    if (!attribute) {
-        throw new Error("Missing index attribute")
-    }
-    return attribute.value
+    console.log("getCreatedRoadOperatorId", createdRoadOperatorEvent)
+    const roadOperatorIndex = createdRoadOperatorEvent.attributes.find(
+        (a) => a.key === "road-operator-index",
+    ).value
+    console.log("roadOperatorIndex", roadOperatorIndex)
+    return roadOperatorIndex
 }
