@@ -3,6 +3,7 @@ package uservaultstudent_test
 import (
 	"context"
 	"errors"
+	"github.com/b9lab/toll-road/x/tollroad/types"
 	"math/rand"
 	"strconv"
 	"testing"
@@ -17,7 +18,6 @@ import (
 	"github.com/b9lab/toll-road/testutil/mock_types"
 	"github.com/b9lab/toll-road/x/tollroad"
 	"github.com/b9lab/toll-road/x/tollroad/keeper"
-	"github.com/b9lab/toll-road/x/tollroad/types"
 )
 
 // Prevent strconv unused error
