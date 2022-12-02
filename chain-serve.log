@@ -19,19 +19,28 @@ Cosmos SDK's version is: [33mstargate - v0.45.4[0m
 🌍 Token faucet: http://0.0.0.0:4500
 [33mW💿 Saving genesis state...
 panic: Unma🛠️  Building proto...
-roto...
+📦 Installing dependencies...
+🛠️  Building the blockchain...
+💿 Existent genesis detected, restoring the database...
+💿 Saving genesis state...
+Error: failed to initialize database: resource temporarily unavailable
+Usage:
+  toll-roadd export [flags]
 
+Flags:
+      --for-zero-height              Export state to start at height zero (perform preproccessing)
+      --height int                   Export state from a particular height (-1 means latest height) (default -1)
+  -h, --help                         help for export
+      --jail-allowed-addrs strings   Comma-separated list of operator addresses of jailed validators to unjail
 
-goroutine 1 [running]:
-github.com/cosmos/cosmos-sdk/x/params/types.Subspace.Get({{_, _}, _, {_, _}, {_, _}, {_, _, _}, ...}, ...)
-	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/x/params/types/subspace.go:109 +0x20c
-github.com/cosmos/cosmos-sdk/x/params/types.Subspace.GetParamSet({{_, _}, _, {_, _}, {_, _}, {_, _, _}, ...}, ...)
-	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/x/params/types/subspace.go:222 +0x11c
-github.com/cosmos/cosmos-sdk/x/auth/keeper.AccountKeeper.GetParams(...)
-	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/x/auth/keeper/params.go:15
-github.com/cosmos/cosmos-sdk/x/auth.ExportGenesis({{0x10529ac40, 0x14000056098}, {0x1052a7640, 0x1400124eec0}, {{0x0, 0x0}, {0x0, 0x0}, 0x0, {0x0, ...}, ...}, ...}, ...)
-	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/x/auth/genesis.go:32 +0xf0
-github.com/cosmos/cosmos-sdk/x/auth.AppModule.ExportGenesis({{}, {{0x1052830e8, 0x14001266ec0}, {0x1052a5f30, 0x140005a5650}, {{0x1052a5f30, 0x140005a5650}, 0x140005b01d0, {0x1052830e8, 0x14001266f40}, ...}, ...}, ...}, ...)
+Global Flags:
+      --home string         directory for config and data (default "/Users/sigridjin.eth/.toll-road")
+      --log_format string   The logging format (json|plain) (default "plain")
+      --log_level string    The logging level (trace|debug|info|warn|error|fatal|panic) (default "info")
+      --trace               print out full stack trace on errors
+
+: exit status 1
+650}, {{0x1052a5f30, 0x140005a5650}, 0x140005b01d0, {0x1052830e8, 0x14001266f40}, ...}, ...}, ...}, ...)
 	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/x/auth/module.go:151 +0x68
 github.com/cosmos/cosmos-sdk/types/module.(*Manager).ExportGenesis(_, {{0x10529ac40, 0x14000056098}, {0x1052a7640, 0x1400124eec0}, {{0x0, 0x0}, {0x0, 0x0}, 0x0, ...}, ...}, ...)
 	/Users/sigridjin.eth/go/pkg/mod/github.com/cosmos/cosmos-sdk@v0.45.4/types/module/module.go:341 +0xd8
