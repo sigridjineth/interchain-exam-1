@@ -14,15 +14,7 @@ import {
     TollroadExtension,
 } from "./modules/tollroad/queries"
 import {
-    MsgCreateRoadOperatorEncodeObject,
-    MsgCreateUserVaultEncodeObject,
-    MsgDeleteRoadOperatorEncodeObject,
-    MsgDeleteUserVaultEncodeObject,
     tollroadTypes,
-    typeUrlMsgCreateRoadOperator,
-    typeUrlMsgCreateUserVault,
-    typeUrlMsgDeleteRoadOperator,
-    typeUrlMsgDeleteUserVault,
 } from "./types/tollroad/messages"
 
 export const tollroadDefaultRegistryTypes: ReadonlyArray<
